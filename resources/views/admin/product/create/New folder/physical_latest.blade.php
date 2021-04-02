@@ -358,6 +358,7 @@
 						</div>
 						<div class="body-area">
 
+
 							<div class="row form-group m-0">
 								<div class="col-lg-2 col-md-4 col-12 col-sm-12">
 									<div class="left-area">
@@ -373,14 +374,14 @@
 							<div class="row form-group m-1 show-img-gallery">
 								<div class="col-lg-2 col-md-2 ">
 									<div class="panel panel-body">
-										<div class="span4 cropme text-center" id="landscape" style=" min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
+										<div class="span4 cropme text-center" id="landscape" style="overflow-y: hidden; min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
 											<!-- <a href="javascript:;" id="crop-image" class=" mybtn1" style="">
 											<i class="icofont-upload-alt"></i> {{ __('Upload Image Here') }}
 											</a> -->
 										</div>
 									</div>
 								</div>
-								
+
 								<!-- <div class="col-lg-2 col-md-2">
 									<div class="panel panel-body">
 										<div class="span4 cropme text-center" id="landscape" style="min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
@@ -393,9 +394,9 @@
 								<div class="col-lg-2 col-md-2">
 									<div class="panel panel-body">
 										<div class="span4 text-center" style="min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
-										<a href="#" data-toggle="modal" data-target="#setgallery">
-													<i class="icofont-plus"></i> {{ __('Set Gallery') }}
-												</a>
+											<a href="#" class=" my-auto" data-toggle="modal" data-target="#setgallery">
+												<i class="icofont-plus"></i> {{ __('Set Gallery') }}
+											</a>
 										</div>
 									</div>
 								</div>
@@ -411,10 +412,9 @@
 
 							<input type="hidden" id="feature_photo" name="photo" value="">
 
-							<input type="file" name="gallery[]" class="hidden" id="uploadgallery" accept="image/*"
-											   multiple>
+							<input type="file" name="gallery[]" class="hidden" id="uploadgallery" accept="image/*" multiple>
 
-										<!-- <div class="row mb-4">
+							<!-- <div class="row mb-4">
 											<div class="col-lg-12 mb-2">
 												<div class="left-area">
 													<h4 class="heading">
@@ -441,33 +441,36 @@
 								<div class="col-lg-12 col-md-12 col-12 col-sm-12">
 									<textarea class="form-control" id="summernote" placeholder="Enter the Description" name="details"></textarea>
 
+
 								</div>
 							</div>
 
 							<br>
 
-							<div class="row form-group">
+							<!-- <div class="row form-group">
 								<div class="col-lg-12 col-sm-12 col-md-12 col-12 text-center">
 									<div class="left-area">
 										<h4 class="heading"><span class="label-star">*</span>{{ __('Product Buy/Return Policy') }} </h4>
 									</div>
 								</div>
 								<div class="col-lg-12 col-md-12 col-12 col-sm-12">
-									<!-- <div class="text-editor"> -->
+									<div class="text-editor">
 										<textarea class="form-control" id="summernote" placeholder="Product Buy/Return Policy" name="policy"></textarea>
 
-										<!-- <textarea class="nic-edit-p" name="policy"></textarea> -->
 
-									<!-- </div> -->
+									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
+
+
+
 				<div class="add-product-content my-4 product-desc">
 					<div class="product-description">
 						<div class="basic-info pt-4 px-4">
-							<h4>Price and Description</h4>
+							<h4>Price and Quantity</h4>
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
@@ -668,7 +671,7 @@
 
 												<div class="col-md-4 col-sm-6">
 													<div class="input-group">
-														<input name="add_photo[]" type="file" class="input-field  form-control" placeholder="{{ __('Add Photo') }}">
+														<input name="add_photo" type="file" class="input-field  form-control" placeholder="{{ __('Add Photo') }}">
 
 													</div>
 
@@ -709,7 +712,7 @@
 
 															<input type="number" name="size_qty[]" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">
 
-															<input type="number" name="size_price[]" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0">
+															<input type="number" name="size_price[]" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">
 
 															<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>
 
@@ -855,13 +858,12 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
-								<div class="col-lg-12">
+							<!-- FOB Port Starts -->
+								<!-- <div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2" id="stckprod2">
 											<div class="">
 												<div class="checkbox-wrapper">
-													<!-- <input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1"> -->
-													<!-- <label for="allowProductMeasurement">{{ __('FOB Port') }}</label> -->
 													<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="allowProductMeasurement">{{ __('FOB Port') }}</h4>
 												</div>
 											</div>
@@ -883,7 +885,9 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
+							<!-- FOB Port ends -->
+
 
 								<div class="col-lg-12">
 									<div class="row">
@@ -938,7 +942,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-12 py-4">
+										<!-- <div class="col-lg-12 py-4">
 											<div class="row">
 												<div class="offset-lg-1 col-lg-2">
 													<div class="left-area">
@@ -949,11 +953,38 @@
 													<input name="stock" type="text" class="input-field" placeholder="e.g 20">
 												</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 
 
+								<!-- Supply ability start -->
+								<!-- <div class="col-lg-12 ">
+									<div class="row">
+										<div class="offset-lg-1 col-lg-2">
+											<label for="allowProductMinimumQuantity">{{ __('Supply Ability') }}</label>
+										</div>
+										<div class="col-lg-8">
+											<div class="row">
+												<div class="col-lg-6 mt-3 " id="measure">
+													<input name="supply_ability" type="text" id="measurement" class="input-field" placeholder="{{ __('Enter Supply Ability') }}">
+												</div>
+												<div class="col-lg-6 mt-3">
+													<select id="product_measure" name="supply_ability_options">
+														<option value="Custom">{{ __('Select Unit') }}</option>
+														<option value="Gram">{{ __('Gram') }}</option>
+														<option value="Kilogram">{{ __('Kilogram') }}</option>
+														<option value="Litre">{{ __('Litre') }}</option>
+														<option value="Pound">{{ __('Pound') }}</option>
+														<option value="Pair">{{ __('Pair') }}</option>
+														<option value="">{{ __('Nothing') }}</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> -->
+								<!-- Supply ability ends -->
 
 								<!-- SAMPLE Available Starts -->
 								<div class="col-lg-12">
@@ -983,30 +1014,6 @@
 								</div>
 								<!-- Sample available end -->
 
-								<!-- Simple policy starts  -->
-								<div class="col-lg-12 ">
-									<div class="row">
-										<div class="offset-lg-1 col-lg-2">
-											<!-- <input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1"> -->
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Simple Policy') }}</label> -->
-											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Simple Policy') }}</h4>
-
-										</div>
-										<div class="col-lg-4">
-											<select id="product_measure" name="simple_policy">
-												<option value="">{{ __('Select') }}</option>
-												<option value="Free Sample are Available">{{ __('Free Sample are Available') }}</option>
-												<option value="Within certain price rang free sample are available">{{ __('Within certain price rang free sample are available') }}</option>
-												<option value="Free Sample available with shipping and tax paid by">{{ __('Free Sample available with shipping and tax paid by') }}</option>
-												<option value="Sample Costs shipping and taxes have to be paid by the">{{ __('Sample Costs shipping and taxes have to be paid by the') }}</option>
-												<option value="If order is confirmed we will reimbuse the sample costs">{{ __('If order is confirmed we will reimbuse the sample costs') }}</option>
-												<option value="Contact us for information regarding our sample policy">{{ __('Contact us for information regarding our sample policy') }}</option>
-											</select>
-										</div>
-									</div>
-								</div>
-
-								<!-- Simple policy end -->
 
 								<!-- Simple policy starts  -->
 								<div class="col-lg-12 ">
@@ -1017,7 +1024,7 @@
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Simple Policy') }}</h4>
 
 										</div>
-										<div class="col-lg-4">
+										<div class="col-lg-9">
 											<select id="product_measure" name="simple_policy">
 												<option value="Custom">{{ __('Select') }}</option>
 												<option value="Gram">{{ __('Free Sample are Available') }}</option>
@@ -1239,36 +1246,70 @@
 	$("#uploadgallery").change(function() {
 		var total_file = document.getElementById("uploadgallery").files.length;
 		for (var i = 0; i < total_file; i++) {
-			$('.selected-image .row').append('<div class="col-sm-6">' +
-				'<div class="img gallery-img">' +
-				'<span class="remove-img"><i class="fas fa-times"></i>' +
-				'<input type="hidden" value="' + i + '">' +
-				'</span>' +
-				'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
-				'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
-				'</a>' +
-				'</div>' +
-				'</div> '
-			);
-			$('.show-img-gallery').append(
-				'<div class="col-lg-2 col-md-2">'+
-				'<div class="panel panel-body">'+
-				'<div class="span4 cropme text-center" style="max-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
-				'<span class="remove-img"><i class="fas fa-times"></i>' +
-				'<input type="hidden" value="' + i + '">' +
-				'</span>' +
-				'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
-				'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
-				'</a>' +
-				'</div>' +
-				'</div> '+
-				'</div>'
-			);
-			$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
-				'" class="removegal" value="' + i + '">')
+			if (i < 4) {
+				$('.selected-image .row').append('<div class="col-sm-6">' +
+					'<div class="img gallery-img">' +
+					'<span class="remove-img"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> '
+				);
+				$('.show-img-gallery').append(
+					'<div class="col-lg-2 col-md-2">' +
+					'<div class="panel panel-body">' +
+					'<div class="span4 cropme text-center" style="overflow-y: hidden; height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
+					'<span class="remove-img  position-absolute px-2 m-1 bg-white rounded-circle"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image" style="overflow-y: hidden">' +
+					'</a>' +
+					'</div>' +
+					'</div> ' +
+					'</div>'
+				);
+				$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
+					'" class="removegal" value="' + i + '">')
+			} else {
+
+				$('.selected-image .row').append('<div class="col-sm-6">' +
+					'<div class="img gallery-img hidden">' +
+					'<span class="remove-img"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> '
+				);
+				$('.show-img-gallery').append(
+					'<div class="col-lg-2 col-md-2 hidden">' +
+					'<div class="panel panel-body">' +
+					'<div class="span4 cropme text-center" style="height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
+					'<span class="remove-img  position-absolute px-2 m-1 bg-white rounded-circle"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> ' +
+					'</div>'
+				);
+				$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
+					'" class="removegal" value="' + i + '">')
+			}
+
 		}
 
 	});
+
+
 
 	// Gallery Section Insert Ends
 </script>

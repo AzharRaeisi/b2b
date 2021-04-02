@@ -587,10 +587,21 @@ class ProductController extends Controller
         $thumbnail = time().str_random(8).'.jpg';
         $img->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
         $prod->thumbnail  = $thumbnail;
-        $prod->update();
+        // $prod->update();
 
         // Add To Gallery If any
         $lastid = $data->id;
+        $prod->add_photo_color = '';
+        $a_photo_clr[] = '';
+        if ($add_photos = $request->file('add_photo')){
+            foreach ($add_photos as $file){
+                    $name = time().$file->getClientOriginalName();
+                    $a_photo_clr[] = $file->getClientOriginalName();
+                    $file->move('assets/images/products',$name);
+            }
+        }
+        $prod->add_photo_color = implode(',', $a_photo_clr);
+        $prod->update();
         if ($files = $request->file('gallery')){
             foreach ($files as  $key => $file){
                 if(in_array($key, $request->galval))
