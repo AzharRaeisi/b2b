@@ -333,7 +333,7 @@
 				<div class="add-product-content my-4 product-desc">
 					<div class="product-description">
 						<div class="basic-info pt-4 px-4">
-							<h4 id="productDescription">Product Description</h4>
+							<h4 id="productDescription">Product Quantity</h4>
 						</div>
 						<div class="body-area">
 
@@ -425,21 +425,21 @@
 
 							<br>
 
-							<div class="row form-group">
+							<!-- <div class="row form-group">
 								<div class="col-lg-12 col-sm-12 col-md-12 col-12 text-center">
 									<div class="left-area">
 										<h4 class="heading"><span class="label-star">*</span>{{ __('Product Buy/Return Policy') }} </h4>
 									</div>
 								</div>
 								<div class="col-lg-12 col-md-12 col-12 col-sm-12">
-									<!-- <div class="text-editor"> -->
+									<div class="text-editor">
 										<textarea class="form-control" id="summernote" placeholder="Product Buy/Return Policy" name="policy">{{$data->policy}}</textarea>
 
-										<!-- <textarea class="nic-edit-p" name="policy"></textarea> -->
+										<textarea class="nic-edit-p" name="policy"></textarea>
 
-									<!-- </div> -->
+									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -582,6 +582,17 @@
 
 											</div>
                                             @endforeach
+											@else
+											<div class="row px-3">
+												<div class="col-md-4 col-sm-6">
+													<input type="text" name="whole_sell_qty[]" value="" class="input-field" placeholder="MOQ(Unit) - 1-10">
+												</div>
+												<div class="col-md-4 col-sm-6">
+													<input type="text" name="whole_sell_discount[]" value="" class="input-field" placeholder="Price(Unit) - 2.09" />
+												</div>
+												<span class="input-group-text whole-remove text-danger" id="basic-addon2"><i class="fas fa-times"></i></span>
+
+											</div>
                                             @endif
 
 										</div>
@@ -633,6 +644,29 @@
 
 											</div>
                                             @endforeach
+											@else
+											<div class="row px-3 ">
+												<div class="col-md-4 col-sm-6 select-input-color cp mb-0">
+													<div class="input-group-prepend ">
+														<button class="btn btn-outline-secondary input-group-addon new-addon new-colors" type="button" id="new_one_colors"><span class="fa fa-angle-down"></span></button>
+														<input type="text" name="color[]" value="" class="input-field cp text-center form-control" />
+
+													</div>
+
+
+												</div>
+
+												<div class="col-md-4 col-sm-6">
+													<div class="input-group">
+														<input name="add_photo[]" type="file" class="input-field  form-control" value="" placeholder="{{ __('Add Photo') }}">
+
+													</div>
+
+												</div>
+
+												<span class="input-group-text color-remove text-danger" style="height: 45px;"><i class="fas fa-times"></i></span>
+
+											</div>
                                             @endif
 
 										</div>
@@ -677,6 +711,23 @@
 													</div>
 												</div>
                                                 @endforeach
+												@else
+												<div class="size-area">
+													<div class="row px-3">
+
+														<div class="input-group">
+															<input type="text" name="size[]" value="" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
+
+															<input type="number" name="size_qty[]" value="" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Quantity - 1" min="1">
+
+															<input type="number" name="size_price[]" value="" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" min="0">
+
+															<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>
+
+														</div>
+
+													</div>
+												</div>
                                                 @endif
 											</div>
 										</div>
@@ -810,13 +861,13 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
-								<div class="col-lg-12">
+								<!-- <div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2" id="stckprod2">
 											<div class="">
 												<div class="checkbox-wrapper">
-													<!-- <input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1"> -->
-													<!-- <label for="allowProductMeasurement">{{ __('FOB Port') }}</label> -->
+													<input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1">
+													<label for="allowProductMeasurement">{{ __('FOB Port') }}</label>
 													<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="allowProductMeasurement">{{ __('FOB Port') }}</h4>
 												</div>
 											</div>
@@ -838,7 +889,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="col-lg-12">
 									<div class="row">
@@ -893,7 +944,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-12 py-4">
+										<!-- <div class="col-lg-12 py-4">
 											<div class="row">
 												<div class="offset-lg-1 col-lg-2">
 													<div class="left-area">
@@ -904,7 +955,7 @@
 													<input name="stock" value="{{ $data->stock }}" type="text" class="input-field" placeholder="e.g 20">
 												</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 

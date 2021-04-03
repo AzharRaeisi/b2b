@@ -702,7 +702,11 @@ class ProductController extends Controller
         $cats = Category::all();
         $data = Product::findOrFail($id);
         $sign = Currency::where('is_default','=',1)->first();
+<<<<<<< HEAD
         dd($data); exit;
+=======
+
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
 
         if($data->type == 'Digital')
             return view('vendor.product.edit.digital',compact('cats','data','sign'));

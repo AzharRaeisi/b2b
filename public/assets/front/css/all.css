@@ -10535,8 +10535,12 @@ Faq Page Start
 ** About Area Start
 ------------------------------*/
 .about {
+<<<<<<< HEAD
   padding: 0px 100px 0px 100px;
  }
+=======
+  padding: 60px 0px 60px; }
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
   .about .about-info .title {
     font-size: 36px;
     font-weight: 600;

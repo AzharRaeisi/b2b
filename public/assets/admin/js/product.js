@@ -68,7 +68,11 @@
 
             '<input type="number" name="size_qty[]" class="form-control col-lg-3" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">' +
 
+<<<<<<< HEAD
             '<input type="number" name="size_price[]" class="form-control col-lg-3" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0">' +
+=======
+            '<input type="number" name="size_price[]" class="form-control col-lg-3" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">' +
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
 
             '<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>' +
 
@@ -92,7 +96,11 @@
 
                 '<input type="number" name="size_qty[]" class="form-control col-lg-3" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">' +
 
+<<<<<<< HEAD
                 '<input type="number" name="size_price[]" class="form-control col-lg-3" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0">' +
+=======
+                '<input type="number" name="size_price[]" class="form-control col-lg-3" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">' +
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
 
                 '<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>' +
 
@@ -234,7 +242,11 @@
 
         $("#color-section").append('' +
             '<div class="row px-3 ">' +
+<<<<<<< HEAD
             '<div class="col-md-4 col-sm-6 select-input-color cp">' +
+=======
+            '<div class="col-md-4 col-sm-6 select-input-color cp  mb-0">' +
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
             '<div class="input-group-prepend ">' +
             '<button class="btn btn-outline-secondary input-group-addon new-addon new-colors" type="button" id="new_one_colors"><span class="fa fa-angle-down"></span></button>' +
             '<input type="text" name="color[]" value="#ffcb48" class="input-field cp text-center form-control" />' +
@@ -246,7 +258,11 @@
 
             '<div class="col-md-4 col-sm-6">' +
             '<div class="input-group">' +
+<<<<<<< HEAD
             '<input name="add_photo[]" type="file" class="input-field  form-control" placeholder="Add Photo">' +
+=======
+            '<input name="measure" type="file" class="input-field  form-control" placeholder="Add Photo">' +
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
 
             '</div>' +
 
@@ -267,7 +283,11 @@
 
             $("#color-section").append('' +
                 '<div class="row px-3 ">' +
+<<<<<<< HEAD
                 '<div class="col-md-4 col-sm-6 select-input-color cp">' +
+=======
+                '<div class="col-md-4 col-sm-6 select-input-color cp  mb-0">' +
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
                 '<div class="input-group-prepend ">' +
                 '<button class="btn btn-outline-secondary input-group-addon new-addon new-colors" type="button" id="new_one_colors"><span class="fa fa-angle-down"></span></button>' +
                 '<input type="text" name="color[]" value="#ffcb48" class="input-field cp text-center form-control" />' +
@@ -279,7 +299,11 @@
 
                 '<div class="col-md-4 col-sm-6">' +
                 '<div class="input-group">' +
+<<<<<<< HEAD
                 '<input name="add_photo[]" type="file" class="input-field  form-control" placeholder="Add Photo">' +
+=======
+                '<input name="measure" type="file" class="input-field  form-control" placeholder="Add Photo">' +
+>>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
 
                 '</div>' +
 

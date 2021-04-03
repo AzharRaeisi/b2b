@@ -486,6 +486,7 @@ Route::group(['middleware'=>'maintenance'],function(){
 
 });
     
+
 Route::prefix('yiwu-bazar-mgmt')->group(function() {
 
     Route::get('/login', 'Admin\LoginController@showLoginForm')->name('admin.login');

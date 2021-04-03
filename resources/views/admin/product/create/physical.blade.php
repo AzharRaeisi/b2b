@@ -186,8 +186,12 @@
 
 
 									<!--  meta tag design -->
-									<div class="col-lg-10 m-auto px-3 py-3" style="background-color: #F0F0F0;">
+									<!-- <div class="col-lg-10 m-auto px-3 py-3" style="background-color: #F0F0F0;">
+										<input type="checkbox" name="seo_check" value="1" class="checkclick" id="allowProductSEO" value="1">
 										<label for="allowProductSEO">{{ __('Allow Product SEO') }}</label>
+										<div class="showbox">
+										
+										</div>
 										<div class="row form-group inline-block">
 											<div class="col-lg-11">
 												<div class="left-area">
@@ -215,9 +219,52 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
+
+									<!-- Allow Product SEO start -->
+									<div class="row" >
+											<div class=" offset-lg-1 col-lg-12">
+												<div class="checkbox-wrapper">
+													<input type="checkbox" name="seo_check" value="1" class="checkclick"
+														   id="allowProductSEO" value="1">
+													<label for="allowProductSEO">{{ __('Allow Product SEO') }}</label>
+												</div>
+											</div>
+										</div>
 
 
+
+										<div class="showbox offset-lg-1 pb-1 pt-3 px-3" style="background-color: #F0F0F0;">
+											<div class="row" >
+												<div class=" col-lg-12">
+													<div class="left-area">
+														<h4 class="heading">{{ __('Meta Tags') }} *</h4>
+													</div>
+												</div>
+												<div class=" col-lg-12">
+													<ul id="metatags" class="myTags">
+													</ul>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="left-area">
+														<h4 class="heading">
+															{{ __('Meta Description') }} *
+														</h4>
+													</div>
+												</div>
+												<div class="col-lg-12">
+													<div class="text-editor">
+													<textarea name="meta_description" class="input-field"
+															  placeholder="{{ __('Meta Description') }}"></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Allow Product SEO ends -->
 
 
 
@@ -446,21 +493,21 @@
 
 							<br>
 
-							<div class="row form-group">
+							<!-- <div class="row form-group">
 								<div class="col-lg-12 col-sm-12 col-md-12 col-12 text-center">
 									<div class="left-area">
 										<h4 class="heading"><span class="label-star">*</span>{{ __('Product Buy/Return Policy') }} </h4>
 									</div>
 								</div>
 								<div class="col-lg-12 col-md-12 col-12 col-sm-12">
-									<!-- <div class="text-editor"> -->
+									<div class="text-editor">
 										<textarea class="form-control" id="summernote" placeholder="Product Buy/Return Policy" name="policy"></textarea>
 
-										<!-- <textarea class="nic-edit-p" name="policy"></textarea> -->
+										<textarea class="nic-edit-p" name="policy"></textarea>
 
-									<!-- </div> -->
+									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -855,13 +902,13 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
-								<div class="col-lg-12">
+								<!-- <div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2" id="stckprod2">
 											<div class="">
 												<div class="checkbox-wrapper">
-													<!-- <input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1"> -->
-													<!-- <label for="allowProductMeasurement">{{ __('FOB Port') }}</label> -->
+													<input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1">
+													<label for="allowProductMeasurement">{{ __('FOB Port') }}</label>
 													<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="allowProductMeasurement">{{ __('FOB Port') }}</h4>
 												</div>
 											</div>
@@ -883,7 +930,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="col-lg-12">
 									<div class="row">
@@ -938,18 +985,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-12 py-4">
-											<div class="row">
-												<div class="offset-lg-1 col-lg-2">
-													<div class="left-area">
-														<h4 class="heading" style="font-size:1rem; font-weight:400px;">Product Stock*</h4>
-													</div>
-												</div>
-												<div class="col-lg-4 pr-2">
-													<input name="stock" type="text" class="input-field" placeholder="e.g 20">
-												</div>
-											</div>
-										</div>
+										
 									</div>
 								</div>
 
@@ -1008,30 +1044,7 @@
 
 								<!-- Simple policy end -->
 
-								<!-- Simple policy starts  -->
-								<div class="col-lg-12 ">
-									<div class="row">
-										<div class="offset-lg-1 col-lg-2">
-											<!-- <input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1"> -->
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Simple Policy') }}</label> -->
-											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Simple Policy') }}</h4>
-
-										</div>
-										<div class="col-lg-4">
-											<select id="product_measure" name="simple_policy">
-												<option value="Custom">{{ __('Select') }}</option>
-												<option value="Gram">{{ __('Free Sample are Available') }}</option>
-												<option value="Kilogram">{{ __('Within certain price rang free sample are available') }}</option>
-												<option value="Litre">{{ __('Free Sample available with shipping and tax paid by') }}</option>
-												<option value="Pound">{{ __('Sample Costs shipping and taxes have to be paid by the') }}</option>
-												<option value="Pair">{{ __('If order is confirmed we will reimbuse the sample costs') }}</option>
-												<option value="">{{ __('Contact us for information regarding our sample policy') }}</option>
-											</select>
-										</div>
-									</div>
-								</div>
-
-								<!-- Simple policy end -->
+								
 
 								<!-- Main export market start -->
 								<div class="col-lg-12">
