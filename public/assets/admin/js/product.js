@@ -123,7 +123,7 @@
             '<div class="select-input-color">' +
             '<div class="color-area">' +
             '<div class="input-group">' +
-            '<input type="text" name="wieight[]" value="" placeholder="Weight" class="input-field" />' +
+            '<input type="number" name="wieight" value="" placeholder="Weight" class="input-field" step=".001" />' +
             '<span class="input-group-addon"><i>Kg</i></span>' +
             '</div>' +
             '</div>' +
@@ -135,13 +135,13 @@
             '</label>' +
             '<div class="row">' +
             '<div class="col-md-4">' +
-            '<input type="text" name="length[]" class="input-field" placeholder="Length">' +
+            '<input type="number" name="length" class="input-field" placeholder="Length" step=".001" />' +
             '</div>' +
             '<div class="col-md-4">' +
-            '<input type="text" name="width[]" class="input-field" placeholder="Width" />' +
+            '<input type="number" name="width" class="input-field" placeholder="Width" step=".001" />' +
             '</div>' +
             '<div class="col-md-4">' +
-            '<input type="text" name="height[]" class="input-field" placeholder="Height" />' +
+            '<input type="number" name="height" class="input-field" placeholder="Height" step=".001" />' +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -153,7 +153,7 @@
             '<div class="select-input-color">' +
             '<div class="color-area">' +
             '<div class="input-group">' +
-            '<input type="number" name="cubic_meter[]" class="input-field" placeholder="Cubic Meters (m³)" value="" min="0">' +
+            '<input type="number" name="cubic_meter[]" class="input-field" placeholder="Cubic Meters (m³)" step=".001" value="" min="0"/>' +
             '<span class="input-group-addon"><i>m³</i></span>' +
             '</div>' +
             '</div>' +
@@ -180,7 +180,7 @@
                 '<div class="select-input-color">' +
                 '<div class="color-area">' +
                 '<div class="input-group">' +
-                '<input type="text" name="wieight[]" value="" placeholder="Weight" class="input-field" />' +
+                '<input type="number" name="wieight" value="" placeholder="Weight" class="input-field" step=".001"/>' +
                 '<span class="input-group-addon"><i>Kg</i></span>' +
                 '</div>' +
                 '</div>' +
@@ -192,13 +192,13 @@
                 '</label>' +
                 '<div class="row">' +
                 '<div class="col-md-4">' +
-                '<input type="text" name="length[]" class="input-field" placeholder="Length">' +
+                '<input type="number" name="length" class="input-field" placeholder="Length" step=".001"/>' +
                 '</div>' +
                 '<div class="col-md-4">' +
-                '<input type="text" name="width[]" class="input-field" placeholder="Width" />' +
+                '<input type="number" name="width" class="input-field" placeholder="Width" step=".001" />' +
                 '</div>' +
                 '<div class="col-md-4">' +
-                '<input type="text" name="height[]" class="input-field" placeholder="Height" />' +
+                '<input type="number" name="height" class="input-field" placeholder="Height" step=".001"/>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
@@ -210,7 +210,7 @@
                 '<div class="select-input-color">' +
                 '<div class="color-area">' +
                 '<div class="input-group">' +
-                '<input type="number" name="cubic_meter[]" class="input-field" placeholder="Cubic Meters (m³)" value="" min="0">' +
+                '<input type="number" name="cubic_meter" class="input-field" placeholder="Cubic Meters (m³)" value="" min="0" step=".001">' +
                 '<span class="input-group-addon"><i>m³</i></span>' +
                 '</div>' +
                 '</div>' +
@@ -444,10 +444,10 @@
                 '<div class="feature-area">' +
                 '<div  class="row px-3">' +
                 '<div class="col-md-4 col-sm-6">' +
-                '<input type="text" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
+                '<input type="number" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
                 '</div>' +
                 '<div class="col-md-4 col-sm-6">' +
-                '<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" required>' +
+                '<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" step=".001" required>' +
                 '</div>' +
 
                 '<span class="input-group-text whole-remove text-danger"><i class="fas fa-trash"></i></span>' +
@@ -466,10 +466,10 @@
                 '<div class="feature-area">' +
                 '<div  class="row px-3">' +
                 '<div class="col-md-4 col-sm-6">' +
-                '<input type="text" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
+                '<input type="number" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
                 '</div>' +
                 '<div class="col-md-4 col-sm-6">' +
-                '<input type="text" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" required>' +
+                '<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" step=".001" required>' +
                 '</div>' +
 
                 '<span class="input-group-text whole-remove text-danger"><i class="fas fa-trash"></i></span>' +

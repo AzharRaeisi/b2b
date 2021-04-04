@@ -372,23 +372,30 @@ class ProductController extends Controller
                     $input['size_qty'] = implode(',', $request->size_qty);
                     $input['size_price'] = implode(',', $request->size_price);
                 }
-                if(in_array(null, $request->weight) || in_array(null, $request->length ) || in_array(null, $request->width )
-                 || in_array(null, $request->height ) || in_array(null, $request->cubic_meter ))
-                {
-                    $input['wieight'] = null;
-                    $input['length'] = null;
-                    $input['width'] = null;
-                    $input['height'] = null;
-                    $input['cubic_meter'] = null;
-                }
-                else
-                {
-                    $input['weight'] = implode(',', $request->weight);
-                    $input['length'] = implode(',', $request->length);
-                    $input['width'] = implode(',', $request->width);
-                    $input['height'] = implode(',', $request->height);
-                    $input['cubic_meter'] = implode(',', $request->cubic_meter);
-                }
+                // if(in_array(null, $request->weight) || in_array(null, $request->length ) || in_array(null, $request->width )
+                //  || in_array(null, $request->height ) || in_array(null, $request->cubic_meter ))
+                // {
+                //     $input['wieight'] = null;
+                //     $input['length'] = null;
+                //     $input['width'] = null;
+                //     $input['height'] = null;
+                //     $input['cubic_meter'] = null;
+                // }
+                // else
+                // {
+                //     $input['weight'] = implode(',', $request->weight);
+                //     $input['length'] = implode(',', $request->length);
+                //     $input['width'] = implode(',', $request->width);
+                //     $input['height'] = implode(',', $request->height);
+                //     $input['cubic_meter'] = implode(',', $request->cubic_meter);
+                // }
+                $input['weight'] = $request->weight;
+                $input['length'] = $request->length;
+                $input['width'] = $request->width;
+                $input['height'] = $request->height;
+                $input['cubic_meter'] = $request->cubic_meter;
+                $input['stock'] = $request->pro_inventory;
+                $input['sample_policy'] = $request->simple_policy;
                 if( in_array(null, $request->payment_termpayment_terms ) || in_array(null, $request->export_market ))
                {
                    $input['payment_term'] = null;
@@ -903,23 +910,30 @@ class ProductController extends Controller
                 $input['size_qty'] = implode(',', $request->size_qty);
                 $input['size_price'] = implode(',', $request->size_price);
             }
-            if(in_array(null, $request->weight) || in_array(null, $request->length ) || in_array(null, $request->width )
-             || in_array(null, $request->height ) || in_array(null, $request->cubic_meter ))
-            {
-                $input['wieight'] = null;
-                $input['length'] = null;
-                $input['width'] = null;
-                $input['height'] = null;
-                $input['cubic_meter'] = null;
-            }
-            else
-            {
-                $input['weight'] = implode(',', $request->weight);
-                $input['length'] = implode(',', $request->length);
-                $input['width'] = implode(',', $request->width);
-                $input['height'] = implode(',', $request->height);
-                $input['cubic_meter'] = implode(',', $request->cubic_meter);
-            }
+            // if(in_array(null, $request->weight) || in_array(null, $request->length ) || in_array(null, $request->width )
+            //  || in_array(null, $request->height ) || in_array(null, $request->cubic_meter ))
+            // {
+            //     $input['wieight'] = null;
+            //     $input['length'] = null;
+            //     $input['width'] = null;
+            //     $input['height'] = null;
+            //     $input['cubic_meter'] = null;
+            // }
+            // else
+            // {
+            //     $input['weight'] = implode(',', $request->weight);
+            //     $input['length'] = implode(',', $request->length);
+            //     $input['width'] = implode(',', $request->width);
+            //     $input['height'] = implode(',', $request->height);
+            //     $input['cubic_meter'] = implode(',', $request->cubic_meter);
+            // }
+            $input['weight'] = $request->weight;
+            $input['length'] = $request->length;
+            $input['width'] = $request->width;
+            $input['height'] = $request->height;
+            $input['cubic_meter'] = $request->cubic_meter;
+            $input['stock'] = $request->pro_inventory; 
+
             if( in_array(null, $request->payment_termpayment_terms ) || in_array(null, $request->export_market ))
            {
                $input['payment_term'] = null;
@@ -941,7 +955,7 @@ class ProductController extends Controller
                 {
                     $input['color'] = null;
                 }
-           
+               
 
             // Check Measure
             
@@ -949,19 +963,11 @@ class ProductController extends Controller
 
 
         // Check Seo
-        // if (empty($request->seo_check))
-        // {
-        //     $input['meta_tag'] = null;
-        //     $input['meta_description'] = null;
-        // }
-        // else {
-        //     if (!empty($request->meta_tag))
-        //     {
+     
                 $input['meta_tag'] = implode(',', $request->meta_tag);
-            // }
-        // }
+         
 
-            $input['sample_policy']= $request->simple_policy;
+            $input['sample_policy'] = $request->simple_policy;
 
         // Check License
         if($data->type == "License")
@@ -1088,7 +1094,7 @@ class ProductController extends Controller
             $jsonAttr = json_encode($attrArr);
             $input['attributes'] = $jsonAttr;
         }
-
+        // dd($input);exit;
         $data->update($input);
         //-- Logic Section Ends
 

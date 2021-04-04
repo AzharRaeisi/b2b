@@ -507,7 +507,7 @@
 													<input type="number" name="whole_sell_qty[]" value="{{ $data->whole_sell_qty[$key] }}" class="input-field" placeholder="MOQ(Unit) - 1-10">
 												</div>
 												<div class="col-md-4 col-sm-6">
-													<input type="number" name="whole_sell_discount[]" value="{{ $data->whole_sell_discount[$key] }}" class="input-field" placeholder="Price(Unit) - 2.09" />
+													<input type="number" name="whole_sell_discount[]" value="{{ $data->whole_sell_discount[$key] }}" class="input-field" placeholder="Price(Unit) - 2.09" step=".001"/>
 												</div>
 												<span class="input-group-text text-danger" id="basic-addon2"><i class="fas fa-trash"></i></span>
 
@@ -729,7 +729,7 @@
 															</label>
 															
 															<div class="input-group mb-3">
-																<input type="number" name="weight[]" value="{{ $data->weight }}" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
+																<input type="number" name="weight" value="{{ $data->weight }}" style="padding: 12px 15px;" placeholder="Weight" class="form-control" step=".001" />
 
 																<div class="input-group-append">
 																	<span class="input-group-text">Kg</span>
@@ -743,9 +743,9 @@
 															</label>
 															<div class="row  px-3">
 																<div class="input-group">
-																	<input type="number" name="length[]" value="{{ $data->length }}" class="form-control" style="padding: 12px 15px;" placeholder="Length">
-																	<input type="number" name="width[]" value="{{ $data->width }}" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
-																	<input type="number" name="height[]" value="{{ $data->height }}" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
+																	<input type="number" name="length" value="{{ $data->length }}" class="form-control" style="padding: 12px 15px;" placeholder="Length" step=".001"/>
+																	<input type="number" name="width" value="{{ $data->width }}" class="form-control" style="padding: 12px 15px;" placeholder="Width" step=".001" />
+																	<input type="number" name="height" value="{{ $data->height }}" class="form-control" style="padding: 12px 15px;" placeholder="Height" step=".001" />
 
 																</div>
 															</div>
@@ -756,7 +756,7 @@
 
 															</label>
 															<div class="input-group mb-3">
-																<input type="number" name="cubic_meter[]" value="{{ $data->cubic_meter }}" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0">
+																<input type="number" name="cubic_meter" value="{{ $data->cubic_meter }}" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" step=".001" min="0">
 
 																<div class="input-group-append">
 																	<span class="input-group-text">m³</span>

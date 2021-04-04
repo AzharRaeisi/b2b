@@ -454,10 +454,10 @@
 										<div class="col-lg-9 size-area" id="whole-section">
 											<div class="row px-3">
 												<div class="col-md-4 col-sm-6">
-													<input type="text" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10">
+													<input type="number" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" step=".001"/>
 												</div>
 												<div class="col-md-4 col-sm-6">
-													<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" />
+													<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" step=".001"/>
 
 
 
@@ -536,11 +536,11 @@
 													<div class="row px-3">
 
 														<div class="input-group">
-															<input type="text" name="size[]" class="form-control" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
+															<input type="text" name="size[]" class="form-control" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)"/>
 
-															<input type="number" name="size_qty[]" class="form-control " style="padding: 12px 15px;" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">
+															<input type="number" name="size_qty[]" class="form-control " style="padding: 12px 15px;" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1" step=".001"/>
 
-															<input type="number" name="size_price[]" class="form-control " style="padding: 12px 15px;" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">
+															<input type="number" name="size_price[]" class="form-control " style="padding: 12px 15px;" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001"/>
 
 															<span class="input-group-text text-danger"><i class="fas fa-trash"></i></span>
 
@@ -612,7 +612,7 @@
 																Package Weight
 															</label>
 															<div class="input-group mb-3">
-																<input type="number" name="weight[]" value="" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
+																<input type="number" name="weight" value="" style="padding: 12px 15px;" placeholder="Weight" class="form-control" step=".001" />
 
 																<div class="input-group-append">
 																	<span class="input-group-text">Kg</span>
@@ -626,9 +626,9 @@
 															</label>
 															<div class="row  px-2">
 																<div class="input-group">
-																	<input type="number" name="length[]" class="form-control" style="padding: 12px 15px;" placeholder="Length" />
-																	<input type="number" name="width[]" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
-																	<input type="number" name="height[]" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
+																	<input type="number" name="length" class="form-control" style="padding: 12px 15px;" placeholder="Length" step=".001" />
+																	<input type="number" name="width" class="form-control" style="padding: 12px 15px;" placeholder="Width" step=".001"/>
+																	<input type="number" name="height" class="form-control" style="padding: 12px 15px;" placeholder="Height" step=".001"/>
 
 																</div>
 											
@@ -640,7 +640,7 @@
 
 															</label>
 															<div class="input-group mb-3">
-																<input type="number" name="cubic_meter[]" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0">
+																<input type="number" name="cubic_meter" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0" step=".001"/>
 
 																<div class="input-group-append">
 																	<span class="input-group-text">m³</span>
