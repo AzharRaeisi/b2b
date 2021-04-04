@@ -998,7 +998,7 @@
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Simple Policy') }}</h4>
 
 										</div>
-										<div class="col-lg-4">
+										<div class="col-lg-8">
 											<select id="product_measure" name="simple_policy">
 												<option value="Custom">{{ __('Select') }}</option>
 												<option value="Free Sample are Available" {{$data->simple_policy == 'Free Sample are Available' ? 'selected':''}}>{{ __('Free Sample are Available') }}</option>
@@ -1101,9 +1101,9 @@
 										</div>
 
 										<div class="col-lg-9 col-md-9 col-9 col-sm-12">
-											<div class="text-editor">
-												<textarea class="form-control" id="summernote" placeholder="Meta Description" name="package_detail"></textarea>
-											</div>
+											<!-- <div class="text-editor"> -->
+												<textarea class="form-control" id="summernote" placeholder="Meta Description" name="policy"></textarea>
+											<!-- </div> -->
 										</div>
 									</div>
 								</div>
@@ -1339,6 +1339,10 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+			$(".chk").change(function() {
+		$(".chk").prop('checked', false);
+		$(this).prop('checked', true);
+	});
 
             let html = `<img src="{{ empty($data->photo) ? asset('assets/images/noimage.png') : filter_var($data->photo, FILTER_VALIDATE_URL) ? $data->photo : asset('assets/images/products/'.$data->photo) }}" alt="">`;
             $(".span4.cropme").html(html);

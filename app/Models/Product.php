@@ -11,7 +11,7 @@ class Product extends Model
 {
 
     protected $fillable = ['user_id','category_id','product_type','affiliate_link','sku', 'subcategory_id', 'childcategory_id', 'attributes', 'name', 'photo', 'size','size_qty','size_price', 'color', 'add_photo_color', 'details','price','previous_price','stock','policy','status', 'views','tags','featured','best','top','hot','latest','big','trending','sale','features','colors', 'weight', 
-    'length', 'width', 'height', 'cubic_meter', 'fob_port', 'supply_ability', 'payment_term', 'supply_option', 'sample_check', 'sample_policy', 'export_market', 'product_condition','ship','meta_tag','meta_description','youtube','type','file','license','license_qty','link','platform','region','licence_type','measure','minimum_quantity','discount_date','is_discount','whole_sell_qty','whole_sell_discount','catalog_id','slug'];
+    'length', 'width', 'height', 'cubic_meter', 'supply_ability', 'payment_term', 'supply_option', 'sample_check', 'sample_policy', 'export_market', 'product_condition','ship','meta_tag','meta_description','youtube','type','file','license','license_qty','link','platform','region','licence_type','measure','minimum_quantity','discount_date','is_discount','whole_sell_qty','whole_sell_discount','catalog_id','slug'];
 
     public static function filterProducts($collection)
     {

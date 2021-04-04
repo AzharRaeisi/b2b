@@ -44,28 +44,6 @@
 
 			<div class="col-lg-12">
 
-
-				<!-- <div class="add-product-content mb-4 " >
-					<div class="product-description">
-						<div class="row px-3">
-							<div class="basic-info col-lg-3 pt-4 pb-4  m-0">
-								<h4>Basic Information</h4>
-							</div>
-							<div class="basic-info col-lg-3 pt-4 pb-4 m-0">
-								<h4><a href="#productDescription" style="color: black;"> Product Description</a></h4>
-							</div>
-							<div class="basic-info col-lg-3 pt-4 pb-4 m-0">
-								<h4>Price and Description</h4>
-							</div>
-							<div class="basic-info col-lg-3 pt-4 pb-4 m-0">
-								<h4>Trade Information</h4>
-							</div>
-							
-						</div>
-
-					</div>
-				</div> -->
-
 				<div class="add-product-content">
 					<div class="row">
 						<div class="col-lg-12">
@@ -181,46 +159,6 @@
 										</div>
 									</div>
 
-
-
-
-
-									<!--  meta tag design -->
-									<!-- <div class="col-lg-10 m-auto px-3 py-3" style="background-color: #F0F0F0;">
-										<input type="checkbox" name="seo_check" value="1" class="checkclick" id="allowProductSEO" value="1">
-										<label for="allowProductSEO">{{ __('Allow Product SEO') }}</label>
-										<div class="showbox">
-										
-										</div>
-										<div class="row form-group inline-block">
-											<div class="col-lg-11">
-												<div class="left-area">
-													<h4 class="heading">{{ __('Meta Tags') }} <span class="label-star">*</span></h4>
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<div class="meta-tagss">
-													<ul id="metatags" class="myTags" style="background-color: white;">
-													</ul>
-												</div>
-											</div>
-										</div>
-
-										<div class="row">
-											<div class="col-lg-11">
-												<div class="left-area">
-													<h4 class="heading">{{ __('Meta Description') }} <span class="label-star">*</span></h4>
-												</div>
-											</div>
-
-											<div class="col-lg-12">
-												<div class="text-editor">
-													<textarea name="meta_description" class="input-field" placeholder="{{ __('Meta Description') }}"></textarea>
-												</div>
-											</div>
-										</div>
-									</div> -->
-
 									<!-- Allow Product SEO start -->
 									<div class="row" >
 											<div class=" offset-lg-1 col-lg-12">
@@ -308,41 +246,7 @@
 						<div class="col-lg-12">
 							<div class="product-description">
 								<div class="body-area">
-
-
-									<!-- <div class="row">
-											<div class="col-lg-12">
-												<div class="left-area">
-													<h4 class="heading">
-														{{ __('Product Current Price') }}*
-													</h4>
-													<p class="sub-heading">
-														({{ __('In') }} {{$sign->name}})
-													</p>
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<input name="price" type="number" class="input-field"
-													   placeholder="{{ __('e.g 20') }}" step="0.01" required="" min="0">
-											</div>
-										</div>
-
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="left-area">
-													<h4 class="heading">{{ __('Product Previous Price') }}*</h4>
-													<p class="sub-heading">{{ __('(Optional)') }}</p>
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<input name="previous_price" step="0.01" type="number" class="input-field"
-													   placeholder="{{ __('e.g 20') }}" min="0">
-											</div>
-										</div> -->
-
-
-
-
+						
 									<div class="row featured-tags d-none">
 										<div class="col-lg-6 col-md-12">
 											<div class="left-area">
@@ -421,22 +325,10 @@
 								<div class="col-lg-2 col-md-2 ">
 									<div class="panel panel-body">
 										<div class="span4 cropme text-center" id="landscape" style=" min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
-											<!-- <a href="javascript:;" id="crop-image" class=" mybtn1" style="">
-											<i class="icofont-upload-alt"></i> {{ __('Upload Image Here') }}
-											</a> -->
+										
 										</div>
 									</div>
 								</div>
-								
-								<!-- <div class="col-lg-2 col-md-2">
-									<div class="panel panel-body">
-										<div class="span4 cropme text-center" id="landscape" style="min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
-											<a href="javascript:;" id="crop-image" style="">
-												<i class="icofont-plus"></i><br /> {{ __('Set Gallery') }}
-											</a>
-										</div>
-									</div>
-								</div> -->
 								<div class="col-lg-2 col-md-2">
 									<div class="panel panel-body">
 										<div class="span4 text-center" style="min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
@@ -460,21 +352,6 @@
 
 							<input type="file" name="gallery[]" class="hidden" id="uploadgallery" accept="image/*"
 											   multiple>
-
-										<!-- <div class="row mb-4">
-											<div class="col-lg-12 mb-2">
-												<div class="left-area">
-													<h4 class="heading">
-														{{ __('Product Gallery Images') }} *
-													</h4>
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<a href="#" class="set-gallery" data-toggle="modal" data-target="#setgallery">
-													<i class="icofont-plus"></i> {{ __('Set Gallery') }}
-												</a>
-											</div>
-										</div> -->
 							<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 
 
@@ -492,22 +369,6 @@
 							</div>
 
 							<br>
-
-							<!-- <div class="row form-group">
-								<div class="col-lg-12 col-sm-12 col-md-12 col-12 text-center">
-									<div class="left-area">
-										<h4 class="heading"><span class="label-star">*</span>{{ __('Product Buy/Return Policy') }} </h4>
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12 col-12 col-sm-12">
-									<div class="text-editor">
-										<textarea class="form-control" id="summernote" placeholder="Product Buy/Return Policy" name="policy"></textarea>
-
-										<textarea class="nic-edit-p" name="policy"></textarea>
-
-									</div>
-								</div>
-							</div> -->
 						</div>
 					</div>
 				</div>
@@ -518,47 +379,6 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
-
-								<!-- <div class="col-lg-12">
-									<div class="row">
-										<div class="offset-lg-1 col-lg-2">
-											<div class="col-lg-12 p-0">
-												<div class="checkbox-wrapper">
-													<input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1">
-													<label for="allowProductMinimumQuantity">{{ __('Minimum Order Quantity') }}</label>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-5">
-											<div class="row mt-3">
-												<div class="col-lg-6 d-none">
-													<div class="left-area">
-														<h4 class="heading">{{ __('MOQ') }}*</h4>
-													</div>
-												</div>
-												<div class="col-lg-10 pr-4">
-													<input class="form-control" placeholder="Digit only: 0" style="height:45px;" type="number" value="" name="minimum_quantity">
-												</div>
-											</div>
-											<div class="row d-none">
-												<div class="col-lg-6">
-													<div class="left-area">
-														<h4 class="heading">{{ __('MOQ') }}*</h4>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<input class="form-control" placeholder="Ex: piece, tons etc.." type="text" value="" name="minimum_qty_type">
-												</div>
-											</div>
-										</div>
-
-
-
-
-									</div>
-								</div> -->
-
-
 								<!-- moq -->
 								<div class="col-lg-12">
 									<div class="row">
@@ -593,9 +413,7 @@
 										<div class="offset-lg-1 col-lg-2" id="stckprod2">
 											<div class="">
 												<div class="checkbox-wrapper">
-													<!-- <input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1"> -->
 													<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="allowProductMeasurement">{{ __('Unit of Measurement') }}</h4>
-
 												</div>
 											</div>
 										</div>
@@ -629,47 +447,17 @@
 								<div class="col-lg-12">
 									<div class="row  mb-0">
 										<div class="offset-lg-1 col-lg-2">
-
-											<!-- <div class="col-lg-12 p-0">
-												<div class="col-lg-4">
-													<ul class="list">
-														<li>
-															<input class="checkclick1" name="whole_check" type="checkbox" id="whole_check" value="1">
-															<label for="whole_check">{{ __('Quantity Price (CNY)') }}</label>
-														</li>
-													</ul>
-												</div>
-											</div> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="whole_check">{{ __('Quantity Price (CNY)') }}</h4>
-
 										</div>
 
-										<!-- <div class="col-lg-9">
-											<div class="featured-keyword-area">
-												<div class="feature-tag-top-filds" id="whole-section">
-													<div class="feature-area">
-													<span class="remove whole-remove"><i class="fas fa-times"></i></span>
-													<div class="row">
-														<div class="col-lg-3 ">
-															<input type="text" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10">
-														</div>
-
-														<div class="col-lg-3">
-															<input type="text" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" />
-														</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div> -->
-
+					
 										<div class="col-lg-9 size-area" id="whole-section">
 											<div class="row px-3">
 												<div class="col-md-4 col-sm-6">
 													<input type="text" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10">
 												</div>
 												<div class="col-md-4 col-sm-6">
-													<input type="text" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" />
+													<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" />
 
 
 
@@ -794,16 +582,8 @@
 															<label>
 																Package Weight :
 															</label>
-															<!-- <div class="select-input-color">
-																<div class="color-area">
-																	<div class="input-group">
-																		<input type="text" name="wieight[]" value="" placeholder="Weight" class="input-field" />
-																		<span class="input-group-addon"><i>Kg</i></span>
-																	</div>
-																</div>
-															</div> -->
 															<div class="input-group mb-3">
-																<input type="text" name="weight[]" value="" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
+																<input type="number" name="weight[]" value="" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
 
 																<div class="input-group-append">
 																	<span class="input-group-text">Kg</span>
@@ -817,20 +597,12 @@
 															</label>
 															<div class="row  px-3">
 																<div class="input-group">
-																	<input type="text" name="length[]" class="form-control" style="padding: 12px 15px;" placeholder="Length">
-																	<input type="text" name="width[]" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
-																	<input type="text" name="height[]" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
+																	<input type="number" name="length[]" class="form-control" style="padding: 12px 15px;" placeholder="Length">
+																	<input type="number" name="width[]" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
+																	<input type="numer" name="height[]" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
 
 																</div>
-																<!-- <div class="col-md-4">
-																			<input type="text" name="length[]" class="input-field" placeholder="Length">
-																		</div>
-																		<div class="col-md-4">
-																			<input type="text" name="width[]" class="input-field" placeholder="Width" />
-																		</div>
-																		<div class="col-md-4">
-																			<input type="text" name="height[]" class="input-field" placeholder="Height" />
-																		</div> -->
+											
 															</div>
 														</div>
 														<div class="col-md-3 col-sm-4">
@@ -838,14 +610,6 @@
 																Cubic Meters (m³)
 
 															</label>
-															<!-- <div class="select-input-color">
-																<div class="color-area">
-																	<div class="input-group">
-																		<input type="number" name="cubic_meter[]" class="input-field" placeholder="Cubic Meters (m³)" value="" min="0">
-																		<span class="input-group-addon"><i>m³</i></span>
-																	</div>
-																</div>
-															</div> -->
 															<div class="input-group mb-3">
 																<input type="number" name="cubic_meter[]" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0">
 
@@ -858,8 +622,6 @@
 													</div>
 												</div>
 											</div>
-											<!-- <a href="javascript:;" id="package-weight-btn" class="add-more float-right position-relative" style="left:15px;"><i class="fas fa-plus"></i>Add More Fields
-												</a> -->
 										</div>
 									</div>
 								</div>
@@ -871,7 +633,6 @@
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="check1">{{ __('Estimated Shipping Time') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Estimated Shipping Time') }}</label>
 
 										</div>
@@ -902,36 +663,6 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
-								<!-- <div class="col-lg-12">
-									<div class="row">
-										<div class="offset-lg-1 col-lg-2" id="stckprod2">
-											<div class="">
-												<div class="checkbox-wrapper">
-													<input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1">
-													<label for="allowProductMeasurement">{{ __('FOB Port') }}</label>
-													<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="allowProductMeasurement">{{ __('FOB Port') }}</h4>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-9">
-
-											<div class="row">
-												<div class="d-none">
-													<div class="left-area">
-														<h4 class="heading">{{ __('FOB Port') }}*</h4>
-													</div>
-												</div>
-												<div class="col-lg-6 mt-3">
-													<input name="fob_port" type="text" class="input-field" placeholder="{{ __('Enter Unit') }}">
-												</div>
-												<div class="col-lg-6 mt-3 hidden">
-													<input name="fob_port_unit" type="text" class="input-field" placeholder="{{ __('Enter Unit') }}">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div> -->
-
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
@@ -995,7 +726,6 @@
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Sample Available') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Sample Available') }}</h4>
 
 										</div>
@@ -1023,12 +753,10 @@
 								<div class="col-lg-12 ">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1"> -->
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Simple Policy') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Simple Policy') }}</h4>
 
 										</div>
-										<div class="col-lg-4">
+										<div class="col-lg-8">
 											<select id="product_measure" name="simple_policy">
 												<option value="">{{ __('Select') }}</option>
 												<option value="Free Sample are Available">{{ __('Free Sample are Available') }}</option>
@@ -1050,8 +778,6 @@
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1"> -->
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Main Export Market(s)') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Main Export Market(s)') }}</h4>
 
 										</div>
@@ -1127,15 +853,13 @@
 								<div class="col-lg-12">
 									<div class="row d-flex">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Package Details') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Package Details') }}</label>
 
 										</div>
 
 										<div class="col-lg-9 col-md-9 col-9 col-sm-12">
-											<div class="text-editor">
-												<textarea class="form-control" id="summernote" placeholder="Meta Description" name="package_detail"></textarea>
-											</div>
+												<textarea class="form-control" id="summernote" placeholder="Meta Description" name="policy"></textarea>
+										
 										</div>
 									</div>
 								</div>
@@ -1252,33 +976,64 @@
 	$("#uploadgallery").change(function() {
 		var total_file = document.getElementById("uploadgallery").files.length;
 		for (var i = 0; i < total_file; i++) {
-			$('.selected-image .row').append('<div class="col-sm-6">' +
-				'<div class="img gallery-img">' +
-				'<span class="remove-img"><i class="fas fa-times"></i>' +
-				'<input type="hidden" value="' + i + '">' +
-				'</span>' +
-				'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
-				'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
-				'</a>' +
-				'</div>' +
-				'</div> '
-			);
-			$('.show-img-gallery').append(
-				'<div class="col-lg-2 col-md-2">'+
-				'<div class="panel panel-body">'+
-				'<div class="span4 cropme text-center" style="max-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
-				'<span class="remove-img"><i class="fas fa-times"></i>' +
-				'<input type="hidden" value="' + i + '">' +
-				'</span>' +
-				'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
-				'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
-				'</a>' +
-				'</div>' +
-				'</div> '+
-				'</div>'
-			);
-			$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
-				'" class="removegal" value="' + i + '">')
+			if (i < 4) {
+				$('.selected-image .row').append('<div class="col-sm-6">' +
+					'<div class="img gallery-img">' +
+					'<span class="remove-img"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> '
+				);
+				$('.show-img-gallery').append(
+					'<div class="col-lg-2 col-md-2">' +
+					'<div class="panel panel-body">' +
+					'<div class="span4 cropme text-center" style="overflow-y: hidden; height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
+					'<span class="remove-img  position-absolute px-2 m-1 bg-white rounded-circle"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image" style="overflow-y: hidden">' +
+					'</a>' +
+					'</div>' +
+					'</div> ' +
+					'</div>'
+				);
+				$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
+					'" class="removegal" value="' + i + '">')
+			} else {
+
+				$('.selected-image .row').append('<div class="col-sm-6">' +
+					'<div class="img gallery-img hidden">' +
+					'<span class="remove-img"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> '
+				);
+				$('.show-img-gallery').append(
+					'<div class="col-lg-2 col-md-2 hidden">' +
+					'<div class="panel panel-body">' +
+					'<div class="span4 cropme text-center" style="height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
+					'<span class="remove-img  position-absolute px-2 m-1 bg-white rounded-circle"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> ' +
+					'</div>'
+				);
+				$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
+					'" class="removegal" value="' + i + '">')
+			}
 		}
 
 	});
