@@ -160,7 +160,7 @@
 									</div>
 
 									<!-- Allow Product SEO start -->
-									<div class="row" >
+										<div class="row" >
 											<div class=" offset-lg-1 col-lg-12">
 												<div class="checkbox-wrapper">
 													<input type="checkbox" name="seo_check" value="1" class="checkclick"
@@ -180,7 +180,7 @@
 													</div>
 												</div>
 												<div class=" col-lg-12">
-													<ul id="metatags" class="myTags">
+													<ul id="metatags" class="myTags" style="background-color: white;">
 													</ul>
 												</div>
 											</div>
@@ -462,14 +462,11 @@
 
 
 												</div>
-												<span class="input-group-text whole-remove text-danger" id="basic-addon2"><i class="fas fa-times"></i></span>
+												<span class="input-group-text text-danger" id="basic-addon2"><i class="fas fa-trash"></i></span>
 
 											</div>
 
 										</div>
-
-
-
 									</div>
 									<div class="col-lg-12 mt-3">
 										<a href="javascript:;" id="whole-btn" class="add-fild-btn float-right position-relative add-more rounded-pill"><i class="icofont-plus"></i> {{ __('Add More Field') }}</a>
@@ -509,7 +506,7 @@
 
 												</div>
 
-												<span class="input-group-text color-remove text-danger" style="height: 45px;"><i class="fas fa-times"></i></span>
+												<span class="input-group-text text-danger" style="height: 45px;"><i class="fas fa-trash"></i></span>
 
 											</div>
 
@@ -530,7 +527,6 @@
 								<div class="col-lg-12">
 									<div class="row  mb-0 mt-3">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="size-check">{{ __('Product Type') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Product Type') }}</h4>
 
 										</div>
@@ -540,13 +536,13 @@
 													<div class="row px-3">
 
 														<div class="input-group">
-															<input type="text" name="size[]" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
+															<input type="text" name="size[]" class="form-control" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
 
-															<input type="number" name="size_qty[]" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">
+															<input type="number" name="size_qty[]" class="form-control " style="padding: 12px 15px;" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">
 
-															<input type="number" name="size_price[]" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0">
+															<input type="number" name="size_price[]" class="form-control " style="padding: 12px 15px;" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">
 
-															<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>
+															<span class="input-group-text text-danger"><i class="fas fa-trash"></i></span>
 
 														</div>
 
@@ -563,71 +559,6 @@
 									</div>
 
 								</div>
-
-
-								<!-- weight and dimensions -->
-								<div class="col-lg-12">
-									<div class="row">
-										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="size-check">{{ __('Package Weight and Dimensions') }}</label> -->
-											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Package Weight and Dimensions') }}</h4>
-
-										</div>
-										<div class="col-lg-9">
-											<div class="product-size-details pb-3" id="package-section">
-												<div class="size-area">
-													<!-- <span class="remove package-remove"><i class="fas fa-times"></i></span> -->
-													<div class="row">
-														<div class="col-md-3 col-sm-4">
-															<label>
-																Package Weight :
-															</label>
-															<div class="input-group mb-3">
-																<input type="number" name="weight[]" value="" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
-
-																<div class="input-group-append">
-																	<span class="input-group-text">Kg</span>
-																</div>
-															</div>
-														</div>
-														<div class="col-md-7 col-sm-4">
-															<label>
-																Package Dimenisions - L × W × H
-
-															</label>
-															<div class="row  px-3">
-																<div class="input-group">
-																	<input type="number" name="length[]" class="form-control" style="padding: 12px 15px;" placeholder="Length">
-																	<input type="number" name="width[]" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
-																	<input type="numer" name="height[]" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
-
-																</div>
-											
-															</div>
-														</div>
-														<div class="col-md-3 col-sm-4">
-															<label>
-																Cubic Meters (m³)
-
-															</label>
-															<div class="input-group mb-3">
-																<input type="number" name="cubic_meter[]" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0">
-
-																<div class="input-group-append">
-																	<span class="input-group-text">m³</span>
-																</div>
-															</div>
-														</div>
-
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-
 
 								<!-- estimated shipping time -->
 								<div class="col-lg-12">
@@ -663,6 +594,68 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
+							
+								<!-- weight and dimensions starts -->
+								<div class="col-lg-12">
+									<div class="row">
+										<div class="offset-lg-1 col-lg-2">
+											<!-- <label for="size-check">{{ __('Package Weight and Dimensions') }}</label> -->
+											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Package Weight and Dimensions') }}</h4>
+
+										</div>
+										<div class="col-lg-9">
+											<div class="product-size-details pb-3" id="package-section">
+												<div class="size-area"> 
+													<div class="row">
+														<div class="col-md-5 col-sm-4">
+															<label>
+																Package Weight
+															</label>
+															<div class="input-group mb-3">
+																<input type="number" name="weight[]" value="" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
+
+																<div class="input-group-append">
+																	<span class="input-group-text">Kg</span>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-7 col-sm-4">
+															<label>
+																Package Dimenisions - L × W × H
+
+															</label>
+															<div class="row  px-2">
+																<div class="input-group">
+																	<input type="number" name="length[]" class="form-control" style="padding: 12px 15px;" placeholder="Length" />
+																	<input type="number" name="width[]" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
+																	<input type="number" name="height[]" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
+
+																</div>
+											
+															</div>
+														</div>
+														<div class="col-md-5 col-sm-4">
+															<label>
+																Cubic Meters (m³)
+
+															</label>
+															<div class="input-group mb-3">
+																<input type="number" name="cubic_meter[]" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0">
+
+																<div class="input-group-append">
+																	<span class="input-group-text">m³</span>
+																</div>
+															</div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- weight and dimensions ends -->
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
@@ -756,7 +749,7 @@
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Simple Policy') }}</h4>
 
 										</div>
-										<div class="col-lg-8">
+										<div class="col-lg-6">
 											<select id="product_measure" name="simple_policy">
 												<option value="">{{ __('Select') }}</option>
 												<option value="Free Sample are Available">{{ __('Free Sample are Available') }}</option>
@@ -764,7 +757,6 @@
 												<option value="Free Sample available with shipping and tax paid by">{{ __('Free Sample available with shipping and tax paid by') }}</option>
 												<option value="Sample Costs shipping and taxes have to be paid by the">{{ __('Sample Costs shipping and taxes have to be paid by the') }}</option>
 												<option value="If order is confirmed we will reimbuse the sample costs">{{ __('If order is confirmed we will reimbuse the sample costs') }}</option>
-												<option value="Contact us for information regarding our sample policy">{{ __('Contact us for information regarding our sample policy') }}</option>
 											</select>
 										</div>
 									</div>
@@ -851,17 +843,17 @@
 
 								<!-- Pckage details start -->
 								<div class="col-lg-12">
-									<div class="row d-flex">
+									
 										<div class="offset-lg-1 col-lg-2">
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Package Details') }}</label>
 
 										</div>
 
-										<div class="col-lg-9 col-md-9 col-9 col-sm-12">
+										<div class="col-lg-12 col-md-12 col-12 col-sm-12">
 												<textarea class="form-control" id="summernote" placeholder="Meta Description" name="policy"></textarea>
 										
 										</div>
-									</div>
+									
 								</div>
 
 
@@ -869,7 +861,7 @@
 
 								<div class="col-sm-12">
 									<center>
-										<input type="submit" class="btn btn-info center position-relative add-more rounded-pill" name="form_submit" value="Add Product">
+										<input type="submit" class="btn btn-info center position-relative add-more rounded-pill m-3" name="form_submit" value="Add Product">
 
 									</center>
 								</div>
@@ -939,7 +931,7 @@
 			['para', ['style', 'ul', 'ol', 'paragraph']],
 			['height', ['height']],
 			['table', ['table']],
-			['insert', ['link', 'picture', 'hr']],
+			// ['insert', ['link', 'picture', 'hr']],
 			['view', ['fullscreen', 'codeview']],
 			['help', ['help']]
 		],

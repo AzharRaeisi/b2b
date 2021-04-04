@@ -775,7 +775,7 @@ class ProductController extends Controller
             return redirect()->route('admin.dashboard')->with('unsuccess',__('Sorry the page does not exist.'));
         }
         $data = Product::findOrFail($id);
-
+        $gallery_img = Gallery::where('product_id', $id)->get();
         $cats = Category::select('*');
         if($data->type == 'Digital'){
             $cats = $cats->whereIn('type',['services','both']);
@@ -790,7 +790,7 @@ class ProductController extends Controller
         if($data->type == 'Digital')
             return view('admin.product.edit.digital',compact('cats','data','sign'));
         else
-            return view('admin.product.edit.physical',compact('cats','data','sign'));
+            return view('admin.product.edit.physical',compact('cats','data','sign', 'gallery_img'));
     }
 
     //*** POST Request
@@ -817,19 +817,14 @@ class ProductController extends Controller
         $input = $request->all();
 
         //Check Types
-        if($request->type_check == 1)
-        {
-            $input['link'] = null;
-        }
-        else
-        {
+        
             if($data->file!=null){
                 if (file_exists(public_path().'/assets/files/'.$data->file)) {
                     unlink(public_path().'/assets/files/'.$data->file);
                 }
             }
             $input['file'] = null;
-        }
+        
 
 
         // Check Physical
@@ -846,15 +841,24 @@ class ProductController extends Controller
             }
             //--- Validation Section Ends
 
-            // Check Condition
-            if ($request->product_condition_check == ""){
-                $input['product_condition'] = 0;
+            if(in_array(null, $request->whole_sell_qty) || in_array(null, $request->whole_sell_discount))
+            {
+                $input['whole_sell_qty'] = null;
+                $input['whole_sell_discount'] = null;
             }
+            else
+            {
+                $whole_sell_discount = $request->whole_sell_discount;
+                foreach ($whole_sell_discount as $key=>$whole_sell_discount_amount){
+                    $whole_sell_discount[$key] = $whole_sell_discount_amount / $sign->value;
+                }
+                $input['whole_sell_qty'] = implode(',', $request->whole_sell_qty);
+                $input['whole_sell_discount'] = implode(',', $whole_sell_discount);
+            }
+            
 
             // Check Shipping Time
-            if ($request->shipping_time_check == ""){
-                $input['ship'] = null;
-            }
+            
 
             // Check Size
 
@@ -882,35 +886,53 @@ class ProductController extends Controller
 
 
             // Check Whole Sale
-            if(empty($request->whole_check ))
+            if($request->sample_check == "yes"){
+                $input['sample_check'] = 1;
+            }else{
+                $input['sample_check'] = 0;
+            }
+            if(in_array(null, $request->size) || in_array(null, $request->size_qty))
             {
-                $input['whole_sell_qty'] = null;
-                $input['whole_sell_discount'] = null;
+                $input['size'] = null;
+                $input['size_qty'] = null;
+                $input['size_price'] = null;
             }
-            else{
-                if(in_array(null, $request->whole_sell_qty) || in_array(null, $request->whole_sell_discount))
-                {
-                    $input['whole_sell_qty'] = null;
-                    $input['whole_sell_discount'] = null;
-                }
-                else
-                {
-                    $whole_sell_discount = $request->whole_sell_discount;
-                    foreach ($whole_sell_discount as $key=>$whole_sell_discount_amount){
-                        $whole_sell_discount[$key] = $whole_sell_discount_amount / $sign->value;
-                    }
-
-                    $input['whole_sell_qty'] = implode(',', $request->whole_sell_qty);
-                    $input['whole_sell_discount'] = implode(',',$whole_sell_discount);
-                }
+            else
+            {
+                $input['size'] = implode(',', $request->size);
+                $input['size_qty'] = implode(',', $request->size_qty);
+                $input['size_price'] = implode(',', $request->size_price);
             }
+            if(in_array(null, $request->weight) || in_array(null, $request->length ) || in_array(null, $request->width )
+             || in_array(null, $request->height ) || in_array(null, $request->cubic_meter ))
+            {
+                $input['wieight'] = null;
+                $input['length'] = null;
+                $input['width'] = null;
+                $input['height'] = null;
+                $input['cubic_meter'] = null;
+            }
+            else
+            {
+                $input['weight'] = implode(',', $request->weight);
+                $input['length'] = implode(',', $request->length);
+                $input['width'] = implode(',', $request->width);
+                $input['height'] = implode(',', $request->height);
+                $input['cubic_meter'] = implode(',', $request->cubic_meter);
+            }
+            if( in_array(null, $request->payment_termpayment_terms ) || in_array(null, $request->export_market ))
+           {
+               $input['payment_term'] = null;
+               $input['export_market'] = null;
+           }
+           else
+           {
+               $input['payment_term'] = implode(',', $request->payment_terms);
+               $input['export_market'] = implode(',', $request->export_market);
+           }
 
             // Check Color
-            if(empty($request->color_check ))
-            {
-                $input['color'] = null;
-            }
-            else{
+            
                 if (!empty($request->color))
                 {
                     $input['color'] = implode(',', $request->color);
@@ -919,30 +941,27 @@ class ProductController extends Controller
                 {
                     $input['color'] = null;
                 }
-            }
+           
 
             // Check Measure
-            if ($request->measure_check == "")
-            {
-                $input['measure'] = null;
-            }
+            
         }
 
 
         // Check Seo
-        if (empty($request->seo_check))
-        {
-            $input['meta_tag'] = null;
-            $input['meta_description'] = null;
-        }
-        else {
-            if (!empty($request->meta_tag))
-            {
+        // if (empty($request->seo_check))
+        // {
+        //     $input['meta_tag'] = null;
+        //     $input['meta_description'] = null;
+        // }
+        // else {
+        //     if (!empty($request->meta_tag))
+        //     {
                 $input['meta_tag'] = implode(',', $request->meta_tag);
-            }
-        }
+            // }
+        // }
 
-
+            $input['sample_policy']= $request->simple_policy;
 
         // Check License
         if($data->type == "License")

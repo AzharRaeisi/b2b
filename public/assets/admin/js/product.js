@@ -64,13 +64,13 @@
             '<div class="size-area">' +
             '<div class="row px-3">' +
             '<div class="input-group">' +
-            '<input type="text" name="size[]" class="form-control col-lg-3" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">' +
+            '<input type="text" name="size[]" class="form-control " placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">' +
 
-            '<input type="number" name="size_qty[]" class="form-control col-lg-3" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">' +
+            '<input type="number" name="size_qty[]" class="form-control" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">' +
 
-            '<input type="number" name="size_price[]" class="form-control col-lg-3" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">' +
+            '<input type="number" name="size_price[]" class="form-control " placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">' +
 
-            '<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>' +
+            '<span class="input-group-text size-remove text-danger"><i class="fas fa-trash"></i></span>' +
 
             '</div>' +
 
@@ -88,13 +88,13 @@
                 '<div class="size-area">' +
                 '<div class="row px-3">' +
                 '<div class="input-group">' +
-                '<input type="text" name="size[]" class="form-control col-lg-3" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">' +
+                '<input type="text" name="size[]" class="form-control " placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">' +
 
-                '<input type="number" name="size_qty[]" class="form-control col-lg-3" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">' +
+                '<input type="number" name="size_qty[]" class="form-control" placeholder="Quantity - 1" value="Price - eg. 02.20" min="1">' +
 
-                '<input type="number" name="size_price[]" class="form-control col-lg-3" placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">' +
+                '<input type="number" name="size_price[]" class="form-control " placeholder="Price - eg. 02.20" value="Price - eg. 02.20" min="0" step=".001">' +
 
-                '<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>' +
+                '<span class="input-group-text size-remove text-danger"><i class="fas fa-trash"></i></span>' +
 
                 '</div>' +
 
@@ -114,7 +114,7 @@
     $("#package-weight-btn").on('click', function () {
         $("#package-section").append('' +
             '<div class="size-area">' +
-            '<span class="remove package-remove"><i class="fas fa-times"></i></span>' +
+            '<span class="remove package-remove"><i class="fas fa-trash"></i></span>' +
             '<div class="row px-3">' +
             '<div class="col-md-4 col-sm-4">' +
             '<label>' +
@@ -171,7 +171,7 @@
 
             $("#package-section").append('' +
                 '<div class="size-area">' +
-                '<span class="remove package-remove"><i class="fas fa-times"></i></span>' +
+                '<span class="remove package-remove"><i class="fas fa-trash"></i></span>' +
                 '<div class="row px-3">' +
                 '<div class="col-md-4 col-sm-4">' +
                 '<label>' +
@@ -252,7 +252,7 @@
 
             '</div>' +
 
-            '<span class="input-group-text color-remove text-danger" style="height: 45px;" ><i class="fas fa-times"></i></span>' +
+            '<span class="input-group-text color-remove text-danger" style="height: 45px;" ><i class="fas fa-trash"></i></span>' +
 
             '</div>' +
             '');
@@ -285,7 +285,7 @@
 
                 '</div>' +
 
-                '<span class="input-group-text color-remove text-danger" style="height: 45px;" ><i class="fas fa-times"></i></span>' +
+                '<span class="input-group-text color-remove text-danger" style="height: 45px;" ><i class="fas fa-trash"></i></span>' +
 
                 '</div>' +
                 '');
@@ -303,7 +303,7 @@
 
         $("#feature-section").append('' +
             '<div class="feature-area">' +
-            '<span class="remove feature-remove"><i class="fas fa-times"></i></span>' +
+            '<span class="remove feature-remove"><i class="fas fa-trash"></i></span>' +
             '<div  class="row">' +
             '<div class="col-lg-6">' +
             '<input type="text" name="features[]" class="input-field" placeholder="Enter Your Keyword">' +
@@ -327,7 +327,7 @@
 
             $("#feature-section").append('' +
                 '<div class="feature-area">' +
-                '<span class="remove feature-remove"><i class="fas fa-times"></i></span>' +
+                '<span class="remove feature-remove"><i class="fas fa-trash"></i></span>' +
                 '<div  class="row">' +
                 '<div class="col-lg-6">' +
                 '<input type="text" name="features[]" class="input-field" placeholder="Enter Your Keyword">' +
@@ -376,7 +376,7 @@
 
         $("#license-section").append('' +
             '<div class="license-area">' +
-            '<span class="remove license-remove"><i class="fas fa-times"></i></span>' +
+            '<span class="remove license-remove"><i class="fas fa-trash"></i></span>' +
             '<div  class="row">' +
             '<div class="col-lg-6">' +
             '<input type="text" name="license[]" class="input-field" placeholder="License Key" required="">' +
@@ -396,7 +396,7 @@
 
             $("#license-section").append('' +
                 '<div class="license-area">' +
-                '<span class="remove license-remove"><i class="fas fa-times"></i></span>' +
+                '<span class="remove license-remove"><i class="fas fa-trash"></i></span>' +
                 '<div  class="row">' +
                 '<div class="col-lg-6">' +
                 '<input type="text" name="license[]" class="input-field" placeholder="License Key" required="">' +
@@ -450,7 +450,7 @@
                 '<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" required>' +
                 '</div>' +
 
-                '<span class="input-group-text whole-remove text-danger"><i class="fas fa-times"></i></span>' +
+                '<span class="input-group-text whole-remove text-danger"><i class="fas fa-trash"></i></span>' +
                 '</div>' +
                 '</div>'
                 + '');
@@ -472,7 +472,7 @@
                 '<input type="text" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" required>' +
                 '</div>' +
 
-                '<span class="input-group-text whole-remove text-danger"><i class="fas fa-times"></i></span>' +
+                '<span class="input-group-text whole-remove text-danger"><i class="fas fa-trash"></i></span>' +
                 '</div>' +
                 '</div>'
                 + '');

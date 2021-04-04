@@ -40,28 +40,6 @@
 
 			<div class="col-lg-12">
 
-
-				<!-- <div class="add-product-content mb-4 " >
-					<div class="product-description">
-						<div class="row px-3">
-							<div class="basic-info col-lg-3 pt-4 pb-4  m-0">
-								<h4>Basic Information</h4>
-							</div>
-							<div class="basic-info col-lg-3 pt-4 pb-4 m-0">
-								<h4><a href="#productDescription" style="color: black;"> Product Description</a></h4>
-							</div>
-							<div class="basic-info col-lg-3 pt-4 pb-4 m-0">
-								<h4>Price and Description</h4>
-							</div>
-							<div class="basic-info col-lg-3 pt-4 pb-4 m-0">
-								<h4>Trade Information</h4>
-							</div>
-							
-						</div>
-
-					</div>
-				</div> -->
-
 				<div class="add-product-content">
 					<div class="row">
 						<div class="col-lg-12">
@@ -202,8 +180,19 @@
 
 
 									<!--  meta tag design -->
-									<div class="col-lg-10 m-auto px-3 py-3" style="background-color: #F0F0F0;">
-										<label for="allowProductSEO">{{ __('Allow Product SEO') }}</label>
+
+										
+
+										<div class="row" >
+											<div class=" offset-lg-1 col-lg-12">
+												<div class="checkbox-wrapper">
+													<input type="checkbox" name="seo_check" value="1" class="checkclick"
+														   id="allowProductSEO" value="1">
+													<label for="allowProductSEO">{{ __('Allow Product SEO') }}</label>
+												</div>
+											</div>
+										</div>
+										<div class="showbox offset-lg-1 pb-1 pt-3 px-3" style="background-color: #F0F0F0;">
 										<div class="row form-group inline-block">
 											<div class="col-lg-11">
 												<div class="left-area">
@@ -214,9 +203,9 @@
 												<div class="meta-tagss">
 													<ul id="metatags" class="myTags" style="background-color: white;">
                                                     @if(!empty($data->meta_tag))
-                                                            @foreach ($data->meta_tag as $element)
-                                                                <li>{{  $element }}</li>
-                                                            @endforeach
+                                                        @foreach ($data->meta_tag as $key => $element)
+                                                            <li>{{  $element }}</li>
+                                                        @endforeach
                                                         @endif
 													</ul>
 												</div>
@@ -232,11 +221,12 @@
 
 											<div class="col-lg-12">
 												<div class="text-editor">
-													<!-- <textarea name="meta_description" class="input-field" placeholder="{{ __('Meta Description') }}"></textarea> -->
+													
                                                     <textarea name="meta_description" class="input-field" placeholder="{{ __('Details') }}">{{ $data->meta_description }}</textarea>
 												</div>
 											</div>
 										</div>
+										
 									</div>
 
 
@@ -349,37 +339,47 @@
 									</div>
 								</div>
 							</div>
-							<div class="row form-group m-1 show-img-gallery">
+							<div class="row form-group m-1 show-img-gallery" id="childgallery">
 								<div class="col-lg-2 col-md-2 ">
 									<div class="panel panel-body">
 										<div class="span4 cropme text-center" id="landscape" style=" min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
-											<!-- <a href="javascript:;" id="crop-image" class=" mybtn1" style="">
-											<i class="icofont-upload-alt"></i> {{ __('Upload Image Here') }}
-											</a> -->
+
 										</div>
 									</div>
 								</div>
 								
-								<!-- <div class="col-lg-2 col-md-2">
-									<div class="panel panel-body">
-										<div class="span4 cropme text-center" id="landscape" style="min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
-											<a href="javascript:;" id="crop-image" style="">
-												<i class="icofont-plus"></i><br /> {{ __('Set Gallery') }}
-											</a>
-										</div>
-									</div>
-								</div> -->
 								<div class="col-lg-2 col-md-2">
 									<div class="panel panel-body">
 										<div class="span4 text-center" style="min-height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
-										<a href="#" data-toggle="modal" data-target="#setgallery">
+										<a href="javascript" data-toggle="modal" data-target="#setgallery">
+										<input type="hidden" value="{{$data->id}}">
 													<i class="icofont-plus"></i> {{ __('Set Gallery') }}
 												</a>
+												
 										</div>
 									</div>
 								</div>
+								<!-- <div id="childgallery"> -->
+								@if($gallery_img)
+								@foreach($gallery_img as $img_gallery)
+								<div class="col-lg-2 col-md-2">	
+								<div class="panel panel-body">
+									<div class="span4 text-center" style="height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">
+										<span class="remove-img  position-absolute px-2 m-1 bg-white rounded-circle"><i class="fas fa-times"></i>
+										<input type="file" name="gallery[]" class="hidden" id="oldgallery" accept="image/*"
+											   multiple>
+																</span>
+												<a href="" target="_blank">
+														<img src="{{asset('assets/images/galleries').'/'.$img_gallery['photo']}}" alt="gallery image">
+												</a>
+										</div>
+										</div>
+										</div>
+								@endforeach
+								@endif	
+								<!-- </div>	 -->
 							</div>
-
+							
 							<div class="row form-group m-2">
 								<div class="col-lg-2 col-md-4 col-12 col-sm-12">
 									<div class="left-area text-center">
@@ -393,20 +393,7 @@
 							<input type="file" name="gallery[]" class="hidden" id="uploadgallery" accept="image/*"
 											   multiple>
 
-										<!-- <div class="row mb-4">
-											<div class="col-lg-12 mb-2">
-												<div class="left-area">
-													<h4 class="heading">
-														{{ __('Product Gallery Images') }} *
-													</h4>
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<a href="#" class="set-gallery" data-toggle="modal" data-target="#setgallery">
-													<i class="icofont-plus"></i> {{ __('Set Gallery') }}
-												</a>
-											</div>
-										</div> -->
+									
 							<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 
 
@@ -425,21 +412,6 @@
 
 							<br>
 
-							<!-- <div class="row form-group">
-								<div class="col-lg-12 col-sm-12 col-md-12 col-12 text-center">
-									<div class="left-area">
-										<h4 class="heading"><span class="label-star">*</span>{{ __('Product Buy/Return Policy') }} </h4>
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12 col-12 col-sm-12">
-									<div class="text-editor">
-										<textarea class="form-control" id="summernote" placeholder="Product Buy/Return Policy" name="policy">{{$data->policy}}</textarea>
-
-										<textarea class="nic-edit-p" name="policy"></textarea>
-
-									</div>
-								</div>
-							</div> -->
 						</div>
 					</div>
 				</div>
@@ -450,47 +422,6 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
-
-								<!-- <div class="col-lg-12">
-									<div class="row">
-										<div class="offset-lg-1 col-lg-2">
-											<div class="col-lg-12 p-0">
-												<div class="checkbox-wrapper">
-													<input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1">
-													<label for="allowProductMinimumQuantity">{{ __('Minimum Order Quantity') }}</label>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-5">
-											<div class="row mt-3">
-												<div class="col-lg-6 d-none">
-													<div class="left-area">
-														<h4 class="heading">{{ __('MOQ') }}*</h4>
-													</div>
-												</div>
-												<div class="col-lg-10 pr-4">
-													<input class="form-control" placeholder="Digit only: 0" style="height:45px;" type="number" value="" name="minimum_quantity">
-												</div>
-											</div>
-											<div class="row d-none">
-												<div class="col-lg-6">
-													<div class="left-area">
-														<h4 class="heading">{{ __('MOQ') }}*</h4>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<input class="form-control" placeholder="Ex: piece, tons etc.." type="text" value="" name="minimum_qty_type">
-												</div>
-											</div>
-										</div>
-
-
-
-
-									</div>
-								</div> -->
-
-
 								<!-- moq -->
 								<div class="col-lg-12">
 									<div class="row">
@@ -514,7 +445,7 @@
 											</div>
 										</div>
 										<div class="col-lg-4 pr-2">
-											<input name="pro_inventory" type="text" class="input-field" placeholder="e.g 20">
+											<input name="pro_inventory" type="text" value="{{ $data->stock }}" class="input-field" placeholder="e.g 20">
 										</div>
 									</div>
 								</div>
@@ -531,7 +462,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-8">
+										<div class="col-lg-9">
 											<div class="row">
 												<div class="d-none">
 													<div class="left-area">
@@ -550,7 +481,7 @@
 													</select>
 												</div> 
 												<div class="col-lg-6 mt-3 " id="measure">
-													<input name="unit_measurement" type="text" id="measurement" class="input-field" placeholder="{{ __('Unit of Measurement') }}">
+													<input name="unit_measurement" type="text" id="measurement" value="{{ $data->unit_measurement }}" class="input-field" placeholder="{{ __('Unit of Measurement') }}">
 												</div>
 											</div>
 										</div>
@@ -573,12 +504,12 @@
                                             @foreach($data->whole_sell_qty as $key => $wh1)
 											<div class="row px-3">
 												<div class="col-md-4 col-sm-6">
-													<input type="text" name="whole_sell_qty[]" value="{{ $data->whole_sell_qty[$key] }}" class="input-field" placeholder="MOQ(Unit) - 1-10">
+													<input type="number" name="whole_sell_qty[]" value="{{ $data->whole_sell_qty[$key] }}" class="input-field" placeholder="MOQ(Unit) - 1-10">
 												</div>
 												<div class="col-md-4 col-sm-6">
-													<input type="text" name="whole_sell_discount[]" value="{{ $data->whole_sell_discount[$key] }}" class="input-field" placeholder="Price(Unit) - 2.09" />
+													<input type="number" name="whole_sell_discount[]" value="{{ $data->whole_sell_discount[$key] }}" class="input-field" placeholder="Price(Unit) - 2.09" />
 												</div>
-												<span class="input-group-text whole-remove text-danger" id="basic-addon2"><i class="fas fa-times"></i></span>
+												<span class="input-group-text text-danger" id="basic-addon2"><i class="fas fa-trash"></i></span>
 
 											</div>
                                             @endforeach
@@ -588,9 +519,9 @@
 													<input type="text" name="whole_sell_qty[]" value="" class="input-field" placeholder="MOQ(Unit) - 1-10">
 												</div>
 												<div class="col-md-4 col-sm-6">
-													<input type="text" name="whole_sell_discount[]" value="" class="input-field" placeholder="Price(Unit) - 2.09" />
+													<input type="number" name="whole_sell_discount[]" value="" class="input-field" placeholder="Price(Unit) - 2.09" />
 												</div>
-												<span class="input-group-text whole-remove text-danger" id="basic-addon2"><i class="fas fa-times"></i></span>
+												<span class="input-group-text text-danger" id="basic-addon2"><i class="fas fa-trash"></i></span>
 
 											</div>
                                             @endif
@@ -613,8 +544,6 @@
 									<div class="row  mb-0 mt-3">
 										<div class="offset-lg-1 col-lg-2">
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="whole_check">{{ __('Product Colors') }}</h4>
-
-											<!-- <label for="whole_check">{{ __('Product Colors')	 }}</label> -->
 										</div>
 
 
@@ -640,7 +569,7 @@
 
 												</div>
 
-												<span class="input-group-text color-remove text-danger" style="height: 45px;"><i class="fas fa-times"></i></span>
+												<span class="input-group-text text-danger" style="height: 45px;"><i class="fas fa-trash"></i></span>
 
 											</div>
                                             @endforeach
@@ -664,7 +593,7 @@
 
 												</div>
 
-												<span class="input-group-text color-remove text-danger" style="height: 45px;"><i class="fas fa-times"></i></span>
+												<span class="input-group-text text-danger" style="height: 45px;"><i class="fas fa-trash"></i></span>
 
 											</div>
                                             @endif
@@ -685,8 +614,7 @@
 								<!-- product type -->
 								<div class="col-lg-12">
 									<div class="row  mb-0 mt-3">
-										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="size-check">{{ __('Product Type') }}</label> -->
+										<div class="offset-lg-1 col-lg-2"> 
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Product Type') }}</h4>
 
 										</div>
@@ -698,13 +626,13 @@
 													<div class="row px-3">
 
 														<div class="input-group">
-															<input type="text" name="size[]" value="{{ $data->size[$key] }}" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
+															<input type="text" name="size[]" value="{{ $data->size[$key] }}" class="form-control" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
 
-															<input type="number" name="size_qty[]" value="{{ $data->size_qty[$key] }}" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Quantity - 1" min="1">
+															<input type="number" name="size_qty[]" value="{{ $data->size_qty[$key] }}" class="form-control" style="padding: 12px 15px;" placeholder="Quantity - 1" min="1">
 
-															<input type="number" name="size_price[]" value="{{ $data->size_price[$key] }}" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" min="0">
+															<input type="number" name="size_price[]" value="{{ $data->size_price[$key] }}" class="form-control" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" min="0" step=".001">
 
-															<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>
+															<span class="input-group-text text-danger"><i class="fas fa-trash"></i></span>
 
 														</div>
 
@@ -716,13 +644,13 @@
 													<div class="row px-3">
 
 														<div class="input-group">
-															<input type="text" name="size[]" value="" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
+															<input type="text" name="size[]" value="" class="form-control " style="padding: 12px 15px;" placeholder="Name (eg. S,M,L,XL,XXL,3XL,4XL)">
 
-															<input type="number" name="size_qty[]" value="" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Quantity - 1" min="1">
+															<input type="number" name="size_qty[]" value="" class="form-control " style="padding: 12px 15px;" placeholder="Quantity - 1" min="1">
 
-															<input type="number" name="size_price[]" value="" class="form-control col-lg-3" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" min="0">
+															<input type="number" name="size_price[]" value="" class="form-control" style="padding: 12px 15px;" placeholder="Price - eg. 02.20" min="0">
 
-															<span class="input-group-text size-remove text-danger"><i class="fas fa-times"></i></span>
+															<span class="input-group-text text-danger"><i class="fas fa-trash"></i></span>
 
 														</div>
 
@@ -741,87 +669,6 @@
 
 								</div>
 
-
-								<!-- weight and dimensions -->
-								<div class="col-lg-12">
-									<div class="row">
-										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="size-check">{{ __('Package Weight and Dimensions') }}</label> -->
-											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Package Weight and Dimensions') }}</h4>
-
-										</div>
-										<div class="col-lg-9">
-											<div class="product-size-details pb-3" id="package-section">
-                                            
-												<div class="size-area">
-													<!-- <span class="remove package-remove"><i class="fas fa-times"></i></span> -->
-													<div class="row">
-														<div class="col-md-3 col-sm-4">
-															<label>
-																Package Weight :
-															</label>
-															
-															<div class="input-group mb-3">
-																<input type="text" name="weight[]" value="{{ $data->weight }}" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
-
-																<div class="input-group-append">
-																	<span class="input-group-text">Kg</span>
-																</div>
-															</div>
-														</div>
-														<div class="col-md-7 col-sm-4">
-															<label>
-																Package Dimenisions - L × W × H
-
-															</label>
-															<div class="row  px-3">
-																<div class="input-group">
-																	<input type="text" name="length[]" value="{{ $data->length }}" class="form-control" style="padding: 12px 15px;" placeholder="Length">
-																	<input type="text" name="width[]" value="{{ $data->width }}" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
-																	<input type="text" name="height[]" value="{{ $data->height }}" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
-
-																</div>
-																<!-- <div class="col-md-4">
-																			<input type="text" name="length[]" class="input-field" placeholder="Length">
-																		</div>
-																		<div class="col-md-4">
-																			<input type="text" name="width[]" class="input-field" placeholder="Width" />
-																		</div>
-																		<div class="col-md-4">
-																			<input type="text" name="height[]" class="input-field" placeholder="Height" />
-																		</div> -->
-															</div>
-														</div>
-														<div class="col-md-3 col-sm-4">
-															<label>
-																Cubic Meters (m³)
-
-															</label>
-															<!-- <div class="select-input-color">
-																<div class="color-area">
-																	<div class="input-group">
-																		<input type="number" name="cubic_meter[]" class="input-field" placeholder="Cubic Meters (m³)" value="" min="0">
-																		<span class="input-group-addon"><i>m³</i></span>
-																	</div>
-																</div>
-															</div> -->
-															<div class="input-group mb-3">
-																<input type="number" name="cubic_meter[]" value="{{ $data->cubic_meter }}" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0">
-
-																<div class="input-group-append">
-																	<span class="input-group-text">m³</span>
-																</div>
-															</div>
-														</div>
-
-													</div>
-												</div>
-											</div>
-											<!-- <a href="javascript:;" id="package-weight-btn" class="add-more float-right position-relative" style="left:15px;"><i class="fas fa-plus"></i>Add More Fields
-												</a> -->
-										</div>
-									</div>
-								</div>
 
 
 
@@ -861,101 +708,195 @@
 						</div>
 						<div class="body-area">
 							<div class="row inline-flex">
-								<!-- <div class="col-lg-12">
+							
+								<!-- weight and dimensions starts -->
+								<div class="col-lg-12">
 									<div class="row">
-										<div class="offset-lg-1 col-lg-2" id="stckprod2">
-											<div class="">
-												<div class="checkbox-wrapper">
-													<input type="checkbox" name="measure_check" class="checkclick" id="allowProductMeasurement" value="1">
-													<label for="allowProductMeasurement">{{ __('FOB Port') }}</label>
-													<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="allowProductMeasurement">{{ __('FOB Port') }}</h4>
-												</div>
-											</div>
+										<div class="offset-lg-1 col-lg-2">
+											<!-- <label for="size-check">{{ __('Package Weight and Dimensions') }}</label> -->
+											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Package Weight and Dimensions') }}</h4>
+
 										</div>
 										<div class="col-lg-9">
+											<div class="product-size-details pb-3" id="package-section">
+                                            
+												<div class="size-area">
+													<!-- <span class="remove package-remove"><i class="fas fa-times"></i></span> -->
+													<div class="row">
+														<div class="col-md-5 col-sm-4">
+															<label>
+																Package Weight
+															</label>
+															
+															<div class="input-group mb-3">
+																<input type="number" name="weight[]" value="{{ $data->weight }}" style="padding: 12px 15px;" placeholder="Weight" class="form-control" />
 
-											<div class="row">
-												<div class="d-none">
-													<div class="left-area">
-														<h4 class="heading">{{ __('FOB Port') }}*</h4>
+																<div class="input-group-append">
+																	<span class="input-group-text">Kg</span>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-7 col-sm-4">
+															<label>
+																Package Dimenisions - L × W × H
+
+															</label>
+															<div class="row  px-3">
+																<div class="input-group">
+																	<input type="number" name="length[]" value="{{ $data->length }}" class="form-control" style="padding: 12px 15px;" placeholder="Length">
+																	<input type="number" name="width[]" value="{{ $data->width }}" class="form-control" style="padding: 12px 15px;" placeholder="Width" />
+																	<input type="number" name="height[]" value="{{ $data->height }}" class="form-control" style="padding: 12px 15px;" placeholder="Height" />
+
+																</div>
+															</div>
+														</div>
+														<div class="col-md-5 col-sm-4">
+															<label>
+																Cubic Meters (m³)
+
+															</label>
+															<div class="input-group mb-3">
+																<input type="number" name="cubic_meter[]" value="{{ $data->cubic_meter }}" style="padding: 12px 15px;" class="form-control" placeholder="Cubic Meters (m³)" value="" min="0">
+
+																<div class="input-group-append">
+																	<span class="input-group-text">m³</span>
+																</div>
+															</div>
+														</div>
+
 													</div>
-												</div>
-												<div class="col-lg-6 mt-3">
-													<input name="fob_port" type="text" value="{{ $data->fob_port }}" class="input-field" placeholder="{{ __('Enter Unit') }}">
-												</div>
-												<div class="col-lg-6 mt-3 hidden">
-													<input name="fob_port_unit" type="text" class="input-field" placeholder="{{ __('Enter Unit') }}">
 												</div>
 											</div>
 										</div>
 									</div>
-								</div> -->
 
+								</div>
+
+								<!-- weight and dimensions ends -->
+								
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;" for="allowProductMinimumQuantity">{{ __('Payment Terms') }}</h4>
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Payment Terms') }}</label> -->
 
 										</div>
 										<div class="col-lg-9 ">
 											<div class="row px-3 d-flex">
 												<div class="col-lg-4 p-0 ">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" @foreach($data->payment_terms as $key => $pt) @if($data->payment_terms[$key] == 'Cash on Delivery (COD)') {{ 'checked' }} @endif @endforeach value="Cash on Delivery (COD)" name="payment_terms[]">
+														<input class="form-check mr-2" type="checkbox" value="Cash on Delivery (COD)" name="payment_terms[]"
+														@php
+														$exportpayment_data  = explode(",",$data->payment_term);
+														foreach($exportpayment_data as $key => $exp_market){
+															if($exp_market == "Cash on Delivery (COD)"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Cash on Delivery (COD)') }}</label>
 													</div> 
 												</div>
 												<div class="col-lg-4 p-0">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" @foreach($data->payment_terms as $key => $pt) @if($data->payment_terms[$key] == 'Cash in Advance (CID)') {{ 'checked' }} @endif @endforeach value="Cash in Advance (CID)" name="payment_terms[]">
+														<input class="form-check mr-2" type="checkbox" value="Cash in Advance (CID)" name="payment_terms[]"
+														@php
+														$exportpayment_data  = explode(",",$data->payment_term);
+														foreach($exportpayment_data as $key => $exp_market){
+															if($exp_market == "Cash in Advance (CID)"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Cash in Advance (CID)') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4 p-0">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" value="Days After Acceptance (DA)" name="payment_terms[]">
+														<input class="form-check mr-2" type="checkbox" value="Days After Acceptance (DA)" name="payment_terms[]"
+														@php
+														$exportpayment_data  = explode(",",$data->payment_term);
+														foreach($exportpayment_data as $key => $exp_market){
+															if($exp_market == "Days After Acceptance (DA)"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Days After Acceptance (DA)') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4 p-0">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" value="Letter of Credit (L/C)" name="payment_terms[]">
+														<input class="form-check mr-2" type="checkbox" value="Letter of Credit (L/C)" name="payment_terms[]"
+														@php
+														$exportpayment_data  = explode(",",$data->payment_term);
+														foreach($exportpayment_data as $key => $exp_market){
+															if($exp_market == "Letter of Credit (L/C)"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Letter of Credit (L/C)') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4 p-0">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" value="Telegraphic Transfer (T/T)" name="payment_terms[]">
+														<input class="form-check mr-2" type="checkbox" value="Telegraphic Transfer (T/T)" name="payment_terms[]"
+														@php
+														$exportpayment_data  = explode(",",$data->payment_term);
+														foreach($exportpayment_data as $key => $exp_market){
+															if($exp_market == "Telegraphic Transfer (T/T)"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Telegraphic Transfer (T/T)') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4 p-0">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" value="Western Union" name="payment_terms[]">
+														<input class="form-check mr-2" type="checkbox" value="Western Union" name="payment_terms[]"
+														@php
+														$exportpayment_data  = explode(",",$data->payment_term);
+														foreach($exportpayment_data as $key => $exp_market){
+															if($exp_market == "Western Union"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Western Union') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4 p-0">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" value="Other" name="payment_terms[]">
+														<input class="form-check mr-2" type="checkbox" value="Other" name="payment_terms[]"
+														@php
+														$exportpayment_data  = explode(",",$data->payment_term);
+														foreach($exportpayment_data as $key => $exp_market){
+															if($exp_market == "Other"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Other') }}</label>
 													</div>
 												</div>
 											</div>
 										</div>
-										<!-- <div class="col-lg-12 py-4">
-											<div class="row">
-												<div class="offset-lg-1 col-lg-2">
-													<div class="left-area">
-														<h4 class="heading" style="font-size:1rem; font-weight:400px;">Product Stock*</h4>
-													</div>
-												</div>
-												<div class="col-lg-4 pr-2">
-													<input name="stock" value="{{ $data->stock }}" type="text" class="input-field" placeholder="e.g 20">
-												</div>
-											</div>
-										</div> -->
+										
 									</div>
 								</div>
 
@@ -965,7 +906,6 @@
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Sample Available') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Sample Available') }}</h4>
 
 										</div>
@@ -973,13 +913,33 @@
 											<div class="row px-3 d-flex">
 												<div class="col-lg-2">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2 chk" type="checkbox" value="yes" name="sample_check">
+														<input class="form-check mr-2 chk" type="checkbox" value="yes" name="sample_check"
+														@php
+														$exportsample_data  = explode(",",$data->sample_check);
+														foreach($exportsample_data as $key => $exp_market){
+															if($exp_market == "1"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Yes') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-2">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2 chk" type="checkbox" value="no" name="sample_check">
+														<input class="form-check mr-2 chk" type="checkbox" value="no" name="sample_check"
+														@php
+														$exportsample_data  = explode(",",$data->sample_check);
+														foreach($exportsample_data as $key => $exp_market){
+															if($exp_market == "0"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('No') }}</label>
 													</div>
 												</div>
@@ -993,20 +953,17 @@
 								<div class="col-lg-12 ">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1"> -->
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Simple Policy') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Simple Policy') }}</h4>
 
 										</div>
-										<div class="col-lg-8">
+										<div class="col-lg-6">
 											<select id="product_measure" name="simple_policy">
-												<option value="Custom">{{ __('Select') }}</option>
-												<option value="Free Sample are Available" {{$data->simple_policy == 'Free Sample are Available' ? 'selected':''}}>{{ __('Free Sample are Available') }}</option>
-												<option value="Within certain price rang free sample are available" {{$data->simple_policy == 'Within certain price rang free sample are available' ? 'selected':''}} >{{ __('Within certain price rang free sample are available') }}</option>
-												<option value="Free Sample available with shipping and tax paid by" {{$data->simple_policy == 'Free Sample available with shipping and tax paid by' ? 'selected':''}} >{{ __('Free Sample available with shipping and tax paid by') }}</option>
-												<option value="Sample Costs shipping and taxes have to be paid by the" {{$data->simple_policy == 'Sample Costs shipping and taxes have to be paid by the' ? 'selected':''}} >{{ __('Sample Costs shipping and taxes have to be paid by the') }}</option>
-												<option value="If order is confirmed we will reimbuse the sample costs" {{$data->simple_policy == 'If order is confirmed we will reimbuse the sample costs' ? 'selected':''}} >{{ __('If order is confirmed we will reimbuse the sample costs') }}</option>
-												<option value="Contact us for information regarding our sample policy" {{$data->simple_policy == 'Contact us for information regarding our sample policy' ? 'selected':''}} >{{ __('Contact us for information regarding our sample policy') }}</option>
+												<option value="Custom" {{$data->sample_policy == 'Custom' ? 'selected':''}} >{{ __('Select') }}</option>
+												<option value="Free Sample are Available" {{$data->sample_policy == 'Free Sample are Available' ? 'selected':''}}>{{ __('Free Sample are Available') }}</option>
+												<option value="Within certain price rang free sample are available" {{$data->sample_policy == 'Within certain price rang free sample are available' ? 'selected':''}} >{{ __('Within certain price rang free sample are available') }}</option>
+												<option value="Free Sample available with shipping and tax paid by" {{$data->sample_policy == 'Free Sample available with shipping and tax paid by' ? 'selected':''}} >{{ __('Free Sample available with shipping and tax paid by') }}</option>
+												<option value="Sample Costs shipping and taxes have to be paid by the" {{$data->sample_policy == 'Sample Costs shipping and taxes have to be paid by the' ? 'selected':''}} >{{ __('Sample Costs shipping and taxes have to be paid by the') }}</option>
+												<option value="If order is confirmed we will reimbuse the sample costs" {{$data->sample_policy == 'If order is confirmed we will reimbuse the sample costs' ? 'selected':''}} >{{ __('If order is confirmed we will reimbuse the sample costs') }}</option>
 											</select>
 										</div>
 									</div>
@@ -1018,8 +975,6 @@
 								<div class="col-lg-12">
 									<div class="row">
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <input type="checkbox" name="minimum_quantity_check" class="checkclick" id="allowProductMinimumQuantity" value="1"> -->
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Main Export Market(s)') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Main Export Market(s)') }}</h4>
 
 										</div>
@@ -1028,55 +983,148 @@
 
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class="form-check mr-2" type="checkbox" {{ ($data->export_market[$key] === 'Asia') ? 'checked':''  }} value="Asia" name="export_market[]">
+														<input class="form-check mr-2" type="checkbox" value="Asia" name="export_market[]"
+													
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "Asia"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Asia') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="Central Asia" name="export_market[]">
+														<input class=" form-check mr-2" type="checkbox" value="Central Asia" name="export_market[]"
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "Central Asia"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Central Asia') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="South America" name="export_market[]">
+														<input class=" form-check mr-2" type="checkbox" value="South America" name="export_market[]"
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "South America"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('South America') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="Western Europe" name="export_market[]">
+														<input class=" form-check mr-2"
+														 type="checkbox" value="Western Europe" name="export_market[]"
+														 @php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "Western Europe"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														 >
 														<label for="allowProductMinimumQuantity">{{ __('Western Europe') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="Africa" name="export_market[]">
+														<input class=" form-check mr-2" type="checkbox" value="Africa" name="export_market[]"
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "Africa"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Africa') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="Australia" name="export_market[]">
+														<input class=" form-check mr-2" type="checkbox" value="Australia" name="export_market[]"
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "Australia"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Australia') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="North America" name="export_market[]">
+														<input class=" form-check mr-2" type="checkbox" value="North America" name="export_market[]"
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "North America"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('North America') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="East Europe" name="export_market[]">
+														<input class=" form-check mr-2" type="checkbox" value="East Europe" name="export_market[]"
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "East Europe"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('East Europe') }}</label>
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="checkbox-wrapper d-flex align-items-center justify-content-start ">
-														<input class=" form-check mr-2" type="checkbox" value="Middle East" name="export_market[]">
+														<input class=" form-check mr-2" type="checkbox" value="Middle East" name="export_market[]"
+														@php
+														$export_data  = explode(",",$data->export_market);
+														foreach($export_data as $key => $exp_market){
+															if($exp_market == "	Middle East"){
+																echo 'checked';
+															}
+														}
+                                                            $checked = 1;
+                                                        @endphp
+														>
 														<label for="allowProductMinimumQuantity">{{ __('Middle East') }}</label>
 													</div>
 												</div>
@@ -1092,28 +1140,25 @@
 
 
 								<!-- Pckage details start -->
-								<div class="col-lg-12">
-									<div class="row d-flex">
+								<div class="col-lg-12"> 
 										<div class="offset-lg-1 col-lg-2">
-											<!-- <label for="allowProductMinimumQuantity">{{ __('Package Details') }}</label> -->
 											<h4 class="heading" style="font-size:1rem; font-weight:400px;">{{ __('Package Details') }}</label>
 
 										</div>
 
-										<div class="col-lg-9 col-md-9 col-9 col-sm-12">
-											<!-- <div class="text-editor"> -->
-												<textarea class="form-control" id="summernote" placeholder="Meta Description" name="policy"></textarea>
-											<!-- </div> -->
+										<div class="col-lg-12 col-md-12 col-12 col-sm-12"> 
+												<textarea class="form-control" id="summernote" placeholder="Meta Description" name="policy">{{$data->policy}}</textarea>
+										
 										</div>
-									</div>
+									
 								</div>
 
 
 
 
-								<div class="col-sm-12">
+								<div class="col-sm-12 p-3 m-3">
 									<center>
-										<input type="submit" class="btn btn-info center position-relative add-more rounded-pill" name="form_submit" value="Add Product">
+										<input type="submit" class="btn btn-info center position-relative add-more rounded-pill" name="form_submit" value="Update Product">
 
 									</center>
 								</div>
@@ -1143,12 +1188,9 @@
                         <div class="row">
                             <div class="col-sm-6 text-right">
                                 <div class="upload-img-btn">
-                                    <form  method="POST" enctype="multipart/form-data" id="form-gallery">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" id="pid" name="product_id" value="">
-                                        <input type="file" name="gallery[]" class="hidden" id="uploadgallery" accept="file_extension|video/*|image/*|media_type" multiple>
+                                    
                                         <label for="image-upload" id="prod_gallery"><i class="icofont-upload-alt"></i>{{ __('Upload File') }}</label>
-                                    </form>
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -1181,7 +1223,7 @@
 		['para', ['style','ul', 'ol', 'paragraph']],
 		['height', ['height']],
 		['table', ['table']],
-		['insert', ['link', 'picture', 'hr']],
+		// ['insert', ['link', 'picture', 'hr']],
 		['view', ['fullscreen', 'codeview']],
 		['help', ['help']]
 	],
@@ -1196,68 +1238,12 @@
 
         // Gallery Section Update
 
-        $(document).on("click", ".set-gallery" , function(){
-            var pid = $(this).find('input[type=hidden]').val();
-            $('#pid').val(pid);
-            $('.selected-image .row').html('');
-            $.ajax({
-                type: "GET",
-                url:"{{ route('admin-gallery-show') }}",
-                data:{id:pid},
-                success:function(data){
-                    if(data[0] == 0)
-                    {
-                        $('.selected-image .row').addClass('justify-content-center');
-                        $('.selected-image .row').html('<h3>{{ __('No Images Found.') }}</h3>');
-                    }
-                    else {
-                        $('.selected-image .row').removeClass('justify-content-center');
-                        $('.selected-image .row h3').remove();
-                        var arr = $.map(data[1], function(el) {
-                            return el });
-
-                        for(var k in arr)
-                        {
-                            if(arr[k]['type'] == 'image'){
-                                $('.selected-image .row').append('<div class="col-sm-6">'+
-                                    '<div class="img gallery-img">'+
-                                    '<span class="remove-img"><i class="fas fa-times"></i>'+
-                                    '<input type="hidden" value="'+arr[k]['id']+'">'+
-                                    '</span>'+
-                                    '<a href="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" target="_blank">'+
-                                    '<img src="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" alt="gallery image">'+
-                                    '</a>'+
-                                    '</div>'+
-                                    '</div>');
-                            }
-                            if(arr[k]['type'] == 'video'){
-                                $('.selected-image .row').append('<div class="col-sm-6">'+
-                                    '<div class="img gallery-img">'+
-                                    '<span class="remove-img"><i class="fas fa-times"></i>'+
-                                    '<input type="hidden" value="'+arr[k]['id']+'">'+
-                                    '</span>'+
-                                    '<a href="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" target="_blank">'+
-                                    ' <video width="320" height="350" controls><source src="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" type="video/mp4">Your browser does not support the video tag.</video> '+
-                                    '</a>'+
-                                    '</div>'+
-                                    '</div>');
-                            }
-                        }
-                    }
-
-                }
-            });
-        });
 
 
         $(document).on('click', '.remove-img' ,function() {
             var id = $(this).find('input[type=hidden]').val();
             $(this).parent().parent().remove();
-            $.ajax({
-                type: "GET",
-                url:"{{ route('admin-gallery-delete') }}",
-                data:{id:id}
-            });
+           
         });
 
         $(document).on('click', '#prod_gallery' ,function() {
@@ -1269,58 +1255,77 @@
             $("#form-gallery").submit();
         });
 
-        $(document).on('submit', '#form-gallery' ,function() {
-            $.ajax({
-                url:"{{ route('admin-gallery-store') }}",
-                method:"POST",
-                data:new FormData(this),
-                dataType:'JSON',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success:function(data)
-                {
-                    if(data != 0)
-                    {
-                        $('.selected-image .row').removeClass('justify-content-center');
-                        $('.selected-image .row h3').remove();
-                        var arr = $.map(data, function(el) {
-                            return el });
-                        for(var k in arr)
-                        {
-                            if(arr[k]['type'] == 'image'){
-                                $('.selected-image .row').append('<div class="col-sm-6">'+
-                                    '<div class="img gallery-img">'+
-                                    '<span class="remove-img"><i class="fas fa-times"></i>'+
-                                    '<input type="hidden" value="'+arr[k]['id']+'">'+
-                                    '</span>'+
-                                    '<a href="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" target="_blank">'+
-                                    '<img src="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" alt="gallery image">'+
-                                    '</a>'+
-                                    '</div>'+
-                                    '</div>');
-                            }
-                            if(arr[k]['type'] == 'video'){
-                                $('.selected-image .row').append('<div class="col-sm-6">'+
-                                    '<div class="img gallery-img">'+
-                                    '<span class="remove-img"><i class="fas fa-times"></i>'+
-                                    '<input type="hidden" value="'+arr[k]['id']+'">'+
-                                    '</span>'+
-                                    '<a href="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" target="_blank">'+
-                                    ' <video width="320" height="350" controls><source src="'+'{{asset('assets/images/galleries').'/'}}'+arr[k]['photo']+'" type="video/mp4">Your browser does not support the video tag.</video> '+
-                                    '</a>'+
-                                    '</div>'+
-                                    '</div>');
-                            }
+        
+		$("#uploadgallery").change(function() {
+		var total_file = document.getElementById("uploadgallery").files.length;
+		var old_gallery = document.getElementById("childgallery");
+		// var element = document.getElementById("childgallery");
+		var numberOfChildren = parseInt(old_gallery.children.length) - 2;
+		var grand_total = parseInt(numberOfChildren) + parseInt(total_file);
+		var dis_element = parseInt(grand_total) - parseInt(numberOfChildren);
+		for (var i = 0; i < total_file; i++) {
+			if (i < 4) {
+				$('.selected-image .row').append('<div class="col-sm-6">' +
+					'<div class="img gallery-img">' +
+					'<span class="remove-img"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> '
+				);
+				$('.show-img-gallery').append(
+					'<div class="col-lg-2 col-md-2">' +
+					'<div class="panel panel-body">' +
+					'<div class="span4 cropme text-center" style="overflow-y: hidden; height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
+					'<span class="remove-img  position-absolute px-2 m-1 bg-white rounded-circle"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image" style="overflow-y: hidden">' +
+					'</a>' +
+					'</div>' +
+					'</div> ' +
+					'</div>'
+				);
+				$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
+					'" class="removegal" value="' + i + '">')
+			} else {
 
-                        }
-                    }
+				$('.selected-image .row').append('<div class="col-sm-6">' +
+					'<div class="img gallery-img hidden">' +
+					'<span class="remove-img"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> '
+				);
+				$('.show-img-gallery').append(
+					'<div class="col-lg-2 col-md-2 hidden">' +
+					'<div class="panel panel-body">' +
+					'<div class="span4 cropme text-center" style="height:122px; border: 1px dashed #ddd; background: #f1f1f1;box-shadow: 2px 4px 5px #ddd;">' +
+					'<span class="remove-img  position-absolute px-2 m-1 bg-white rounded-circle"><i class="fas fa-times"></i>' +
+					'<input type="hidden" value="' + i + '">' +
+					'</span>' +
+					'<a href="' + URL.createObjectURL(event.target.files[i]) + '" target="_blank">' +
+					'<img src="' + URL.createObjectURL(event.target.files[i]) + '" alt="gallery image">' +
+					'</a>' +
+					'</div>' +
+					'</div> ' +
+					'</div>'
+				);
+				$('#yiwuform').append('<input type="hidden" name="galval[]" id="galval' + i +
+					'" class="removegal" value="' + i + '">')
+			}
+		}
+	
 
-                }
-
-            });
-            return false;
-        });
+	});
 
 
         // Gallery Section Update Ends

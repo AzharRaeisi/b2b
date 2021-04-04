@@ -533,7 +533,8 @@
                         <div id="product-details-tab">
                             <div class="top-menu-area">
                                 <ul class="tab-menu">
-                                    <li><a href="#tabs-1">{{ $langg->lang92 }}</a></li>
+                                    <!-- <li><a href="#tabs-1">{{ $langg->lang92 }}</a></li> -->
+                                    <li><a href="#tabs-1">{{ Description }}</a></li>
                                     <!-- <li><a href="#tabs-2">{{ $langg->lang93 }}</a></li> -->
                                     <li><a href="#tabs-5">{{ __('Trade Information') }}</a></li>
                                     <li><a href="#tabs-3">{{ $langg->lang94 }}({{ count($productt->ratings) }})</a></li>
@@ -546,27 +547,27 @@
                             <div class="tab-content-wrapper">
                                 <div id="tabs-1" class="tab-content-area">
                                     <p>{!! $productt->details !!}</p>
+                                    <!-- {{ $productt->details }} -->
                                 </div>
                                 <!-- <div id="tabs-2" class="tab-content-area">
                                         <p>{!! $productt->policy !!}</p>
                                     </div> -->
                                 <div id="tabs-5" class="tab-content-area">
 
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Payment Terms</td>
-                                                    <td>
-                                                        @foreach($productt->payment_term as $key => $data1)
+
+                                <dl class="list-group">
+                                    <dt>
+                                    Payment Terms </dt>
+                                        <dd>
+                                         @foreach($productt->payment_term as $key => $data1)
                                                         {{ $productt->payment_term[$key]}}
                                                         <br>
-                                                        @endforeach
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sample Available</td>
-                                                    @if($productt->sample_check == 1)
+                                                        @endforeach</dd>
+                                    
+                                    <dt >
+                                    Sample Available</dt>
+                                        <dd style="text-indent:10%;">
+                                        @if($productt->sample_check == 1)
                                                     <td>
                                                         Yes
                                                     </td>
@@ -576,43 +577,64 @@
                                                     <td>
                                                         No
                                                     </td>
-                                                    @endif  
+                                                    @endif 
+                                        </dd>
+                                
+                                    <dt >
+                                    Simple Policy</dt>
+                                        <dd style="text-indent:10%;">  {{ $productt->sample_policy}}</dd>
+                                    
+                                   
+                                    <dt >
+                                    Main Export Market(s)
+                                    </dt>
+                                        <dd style="text-indent:10%;">
+                                                       @php
+                                                        $exp_market = explode(",", $productt->export_market);
+                                                        foreach($exp_market as $key => $data1){
+                                                         echo $data1.", ";
+                                                        }
+                                                        @endphp
+                                                        </dd>
+                                    
+                                   
+                                    <dt>
+                                    Package Weight and Dimensions</dt>
+                                    <dd style="text-indent:10%;">
+                                         <table class="table info">
+                                                        <thead>
+                                                            <tr> 
+                                                            <th scope="col">Weight</th>
+                                                            <th scope="col">Height</th>
+                                                            <th scope="col">Length</th>
+                                                            <th scope="col">Width</th>
+                                                            <th scope="col">Cubic Meter</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr> 
+                                                            <td> {{ $productt->weight}}</td>
+                                                            <td>{{ $productt->height}}</td>
+                                                            <td>{{ $productt->length}} </td>
+                                                            <td>{{ $productt->width}} </td>
+                                                            <td>{{ $productt->cubic_meter}} </td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table> 
+                                    </dd>
+                                    
+                                    <dt>
+                                    Package Details</dt>
+                                        <dd style="text-indent:10%;">  
+                                        <p>{!! $productt->details !!}</p>
+                                                        {{ $productt->name}}</dd>
+                                   
 
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td>Simple Policy</td>
-                                                    <td>
-                                                        {{ $productt->sample_policy}}
+                                   
+                                </dl>
 
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Main Export Market(s)</td>
-
-                                                    <td>
-                                                        @foreach($productt->export_market as $key => $data1)
-                                                        {{ $productt->export_market[$key]}}
-                                                        <br>
-                                                        @endforeach
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Package Details</td>
-
-                                                    <td>
-                                                    
-                                                        <!-- {{ $productt->details}} -->
-                                                        <!-- {{ $productt->name}} -->
-                                                        
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
+                           </div>
                                 <div id="tabs-3" class="tab-content-area">
                                     <div class="heading-area">
                                         <h4 class="title">

@@ -29,7 +29,6 @@ span.input-group-addon {
 .upload-image{
     width: 160px;
 }
-<<<<<<< HEAD
 /* #new_one_colors {
     margin-right: 135px; margin-top: 4px; background-color: #ffff; border:none;
 }
@@ -39,11 +38,7 @@ span.input-group-addon {
 /* .colorpicker-component .text-center {
     margin-right: 112px;
 } */
-=======
-.colorpicker-component .new-addon {
-    margin-right: 180px; margin-top: 4px; background-color: #ffff; border:none;
-}
-.colorpicker-component .input-group-text {
-    margin-top: -42px;
-}
->>>>>>> d6c37dc9a497784002c00148abdf5139ed33ff75
+
+.note-group-select-from-files {
+    display: none;
+  }
