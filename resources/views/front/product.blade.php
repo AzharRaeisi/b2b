@@ -267,7 +267,7 @@
                                                                     @endif
                                                                 </td> -->
                                                     <td>
-                                                        {{ $productt->size_price[$key] }}
+                                                        {{ $productt->whole_sell_discount[$key] }}
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -559,10 +559,13 @@
                                     <dt>
                                     Payment Terms </dt>
                                         <dd>
-                                         @foreach($productt->payment_term as $key => $data1)
-                                                        {{ $productt->payment_term[$key]}}
-                                                        <br>
-                                                        @endforeach</dd>
+                                        @php
+                                        $pay_data = explode(",", $productt->payment_term);
+                                         foreach($pay_data as $key => $data1){
+                                                        echo '<span class="badge badge-success badge-pill px-2 m-1">'.$data1.'</span>';
+                                                        }
+                                                        @endphp
+                                                        </dd>
                                     
                                     <dt >
                                     Sample Available</dt>
@@ -588,13 +591,17 @@
                                     <dt >
                                     Main Export Market(s)
                                     </dt>
-                                        <dd style="text-indent:10%;">
-                                                       @php
+                                        <dd>
+                                        
+                                                      @php
                                                         $exp_market = explode(",", $productt->export_market);
                                                         foreach($exp_market as $key => $data1){
-                                                         echo $data1.", ";
+                                                        echo '<span class="badge badge-info badge-pill px-2 m-1">'.$data1.'</span>';
                                                         }
+                                                        
                                                         @endphp
+                                        
+                                                       
                                                         </dd>
                                     
                                    

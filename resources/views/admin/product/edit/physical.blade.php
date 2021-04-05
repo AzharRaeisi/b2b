@@ -504,7 +504,7 @@
                                             @foreach($data->whole_sell_qty as $key => $wh1)
 											<div class="row px-3">
 												<div class="col-md-4 col-sm-6">
-													<input type="number" name="whole_sell_qty[]" value="{{ $data->whole_sell_qty[$key] }}" class="input-field" placeholder="MOQ(Unit) - 1-10">
+													<input type="text" name="whole_sell_qty[]" value="{{ $data->whole_sell_qty[$key] }}" class="input-field" placeholder="MOQ(Unit) - 1-10">
 												</div>
 												<div class="col-md-4 col-sm-6">
 													<input type="number" name="whole_sell_discount[]" value="{{ $data->whole_sell_discount[$key] }}" class="input-field" placeholder="Price(Unit) - 2.09" step=".001"/>

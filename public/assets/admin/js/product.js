@@ -444,7 +444,7 @@
                 '<div class="feature-area">' +
                 '<div  class="row px-3">' +
                 '<div class="col-md-4 col-sm-6">' +
-                '<input type="number" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
+                '<input type="text" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
                 '</div>' +
                 '<div class="col-md-4 col-sm-6">' +
                 '<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" step=".001" required>' +
@@ -466,7 +466,7 @@
                 '<div class="feature-area">' +
                 '<div  class="row px-3">' +
                 '<div class="col-md-4 col-sm-6">' +
-                '<input type="number" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
+                '<input type="text" name="whole_sell_qty[]" class="input-field" placeholder="MOQ(Unit) - 1-10" required>' +
                 '</div>' +
                 '<div class="col-md-4 col-sm-6">' +
                 '<input type="number" name="whole_sell_discount[]" class="input-field" placeholder="Price(Unit) - 2.09" step=".001" required>' +
